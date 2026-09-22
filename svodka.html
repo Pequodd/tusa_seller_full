@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Сводка · Кабинет селлера · Made by THOUSUKA</title>
+<link rel="stylesheet" href="assets/colors_and_type.css">
+<style>
+@font-face{font-family:'Lato';src:url('assets/fonts/Lato-Light.ttf') format('truetype');font-weight:300;font-display:swap}
+@font-face{font-family:'Lato';src:url('assets/fonts/Lato-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'Lato';src:url('assets/fonts/Lato-Italic.ttf') format('truetype');font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:'Lato';src:url('assets/fonts/Lato-Bold.ttf') format('truetype');font-weight:700;font-display:swap}
+:root{--bg:#0B0A0D;--bg-2:#100E13;--glass:rgba(255,255,255,0.045);--glass-2:rgba(255,255,255,0.07);--glass-border:rgba(255,255,255,0.10);--glass-border-strong:rgba(255,255,255,0.18);--text-1:#F4F2F4;--text-2:#B7B3BC;--text-3:#837F8A;--crimson:#9D2235;--crimson-soft:#C04B5C;--crimson-tint:rgba(157,34,53,0.16);--cta:#941E1D;--cta-hover:#B0292A;--orange:#C75D45;--beige:#C9A88F;--gold:#E8D08A;--green:#3FB984;--font-ui:'Lato','Helvetica Neue',sans-serif;--r-card:24px;--r-btn:9999px;--shadow-card:0 12px 40px rgba(0,0,0,0.45);--ease:cubic-bezier(0.25,0.46,0.45,0.94);--t:200ms}
+*{box-sizing:border-box}
+body{margin:0;background:#08070a;font-family:var(--font-ui);color:var(--text-1);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--crimson-soft);outline-offset:2px;border-radius:6px}
+.desk{padding:48px;display:flex;flex-direction:column;align-items:center;gap:32px;min-width:min-content}
+.stack{width:100%;display:flex;flex-direction:column;gap:12px}
+.stack--d{width:1600px;max-width:none;margin:0 auto}.stack--d .frame{width:1600px;flex:none}.stack--m{width:390px;max-width:none;margin:0 auto}
+.framelabel{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#4a464f}
+.frame{position:relative;background:var(--bg);border:1px solid rgba(255,255,255,.07);border-radius:8px;overflow:hidden}
+.frame::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(900px 600px at 78% -8%,rgba(157,34,53,0.20),transparent 60%),radial-gradient(700px 520px at 6% 4%,rgba(124,52,40,0.12),transparent 55%)}
+/* type */
+.display{font-weight:700;font-size:34px;line-height:42px;letter-spacing:.01em;margin:0;text-transform:uppercase}
+.h2{font-weight:700;font-size:20px;line-height:28px;letter-spacing:-.01em;margin:0}
+.h3{font-weight:600;font-size:16px;line-height:24px;margin:0}
+.body{font-size:14px;line-height:22px;color:var(--text-2)}
+.sm{font-size:13px;line-height:19px}
+.xs{font-size:12px;line-height:16px}
+.eyebrow{font-size:11px;line-height:1;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--text-3)}
+.stat{font-weight:700;font-size:36px;line-height:44px;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.num{font-weight:700;font-variant-numeric:tabular-nums}
+.t2{color:var(--text-2)}.t3{color:var(--text-3)}.gold{color:var(--gold)}
+/* orb */
+.orb{position:relative;display:grid;place-items:center;border-radius:50%;background:radial-gradient(120% 120% at 30% 22%,rgba(255,255,255,0.16),rgba(255,255,255,0.03) 42%,rgba(255,255,255,0.012) 70%),rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.10);box-shadow:inset 0 1px 1px rgba(255,255,255,0.22),inset 0 -8px 18px rgba(0,0,0,0.45),0 6px 18px rgba(0,0,0,0.40);backdrop-filter:blur(14px);color:#fff;flex:none}
+.orb::after{content:"";position:absolute;left:14%;right:24%;top:8%;height:36%;border-radius:50%;background:linear-gradient(180deg,rgba(255,255,255,0.28),rgba(255,255,255,0));filter:blur(2px);pointer-events:none}
+.orb svg{position:relative;z-index:1;stroke-width:1.5;fill:none;stroke:currentColor}
+.orb--sm{width:36px;height:36px}.orb--sm svg{width:17px;height:17px}
+.orb--md{width:40px;height:40px}.orb--md svg{width:18px;height:18px}
+.orb--crimson{background:radial-gradient(120% 120% at 30% 22%,rgba(192,75,92,.40),rgba(157,34,53,.22) 45%,rgba(157,34,53,.10) 70%);border-color:rgba(192,75,92,.34);color:#F0C3C9}
+/* shell */
+.app{position:relative;display:grid;grid-template-columns:240px 1fr;min-height:1240px}
+.side{width:240px;background:rgba(255,255,255,.03);border-right:1px solid var(--glass-border);backdrop-filter:blur(16px);padding:24px 16px;display:flex;flex-direction:column;gap:24px}
+.wordmark{padding:0 8px}
+.wordmark b{display:block;font-weight:700;font-size:20px;letter-spacing:.16em}
+.wordmark span{display:block;margin-top:3px;font-size:9px;font-weight:600;letter-spacing:.34em;text-transform:uppercase;color:var(--text-3)}
+.mode{display:grid;grid-template-columns:1fr 1fr;gap:4px;background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--r-btn);padding:4px}
+.mode button{border:0;border-radius:var(--r-btn);background:transparent;color:var(--text-3);font-size:13px;font-weight:600;height:34px;transition:color var(--t) var(--ease),background var(--t) var(--ease)}
+.mode button:hover{color:var(--text-2)}
+.mode button.on{background:var(--cta);color:#fff;box-shadow:0 0 20px rgba(157,34,53,.38)}
+.nav{display:flex;flex-direction:column;gap:3px}
+.nav a{display:flex;align-items:center;gap:10px;height:40px;padding:0 14px;border-radius:var(--r-btn);font-size:14px;font-weight:500;color:var(--text-2);transition:color var(--t) var(--ease),background var(--t) var(--ease)}
+.nav a:hover{background:var(--glass);color:var(--text-1)}
+.nav a.on{background:var(--glass-2);color:#fff;font-weight:600}
+.nav a svg{width:16px;height:16px;flex:none;opacity:.7;fill:none;stroke:currentColor;stroke-width:1.5}
+.nav a.on svg{opacity:1;color:var(--crimson-soft)}
+.nav .badge{margin-left:auto;min-width:20px;height:20px;padding:0 6px;display:grid;place-items:center;border-radius:var(--r-btn);background:var(--glass-2);border:1px solid var(--glass-border);font-size:10px;font-weight:700;color:var(--text-2);font-variant-numeric:tabular-nums}
+.sidefoot{margin-top:auto;display:flex;flex-direction:column;gap:12px}
+.levelmini{border:1px solid var(--glass-border);border-radius:18px;background:var(--glass);padding:14px}
+.levelmini .row{display:flex;justify-content:space-between;align-items:baseline}
+.bar{height:4px;border-radius:var(--r-btn);background:rgba(255,255,255,.09);overflow:hidden;margin-top:9px}
+.bar i{display:block;height:100%;border-radius:var(--r-btn);background:linear-gradient(90deg,#8B6914,#E8D08A 60%,#8B6914);box-shadow:0 0 14px rgba(232,208,138,.30)}
+.me{display:flex;align-items:center;gap:10px;padding:8px;border-radius:18px;transition:background var(--t) var(--ease)}
+.me:hover{background:var(--glass)}
+.av{width:36px;height:36px;border-radius:50%;flex:none;background:var(--glass-2);border:1px solid var(--glass-border-strong);box-shadow:0 0 0 4px rgba(255,255,255,.03);display:grid;place-items:center;font-weight:700;font-size:14px;color:var(--text-2)}
+/* content */
+.main{position:relative;width:100%;max-width:1400px;margin:0 auto;padding:32px 48px;display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:32px;align-items:start}
+.col{display:flex;flex-direction:column;gap:20px;min-width:0}
+.rail{display:flex;flex-direction:column;gap:16px}
+.card{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--r-card);backdrop-filter:blur(16px);box-shadow:var(--shadow-card)}
+.card__h{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;border-bottom:1px solid var(--glass-border)}
+.link{font-size:13px;font-weight:500;color:var(--text-3);transition:color var(--t)}
+.link:hover{color:var(--text-1)}
+/* tasks */
+.task{display:flex;align-items:center;gap:14px;padding:14px 22px;border-bottom:1px solid var(--glass-border);transition:background var(--t) var(--ease)}
+.task:last-child{border-bottom:0}
+.task:hover{background:rgba(255,255,255,.03)}
+.task--urgent{box-shadow:inset 2px 0 0 var(--crimson-soft);background:rgba(157,34,53,.07)}
+.task p{margin:0;font-size:14px;line-height:20px;font-weight:500}
+.task .meta{display:block;font-size:12px;line-height:16px;font-weight:400;color:var(--text-3);margin-top:3px}
+.task .sp{margin-left:auto}
+.btn{height:36px;padding:0 18px;border-radius:var(--r-btn);border:1px solid var(--glass-border);background:var(--glass);color:var(--text-1);font-size:13px;font-weight:600;transition:border-color var(--t) var(--ease),background var(--t) var(--ease),box-shadow var(--t) var(--ease)}
+.btn:hover{background:var(--glass-2);border-color:var(--glass-border-strong)}
+.btn--cta{background:var(--cta);border-color:var(--cta);color:#fff}
+.btn--cta:hover{background:var(--cta-hover);border-color:var(--cta-hover);box-shadow:0 0 24px rgba(157,34,53,.5)}
+.btn--gold{border-color:rgba(232,208,138,.38);color:var(--gold);background:rgba(232,208,138,.06)}
+.btn--gold:hover{background:rgba(232,208,138,.12);border-color:rgba(232,208,138,.6);box-shadow:0 0 20px rgba(232,208,138,.22)}
+.btn--sm{height:30px;padding:0 14px;font-size:12px}
+/* metrics */
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.tile{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--r-card);backdrop-filter:blur(16px);box-shadow:var(--shadow-card);padding:18px;display:flex;flex-direction:column;gap:12px;min-height:146px;transition:transform var(--t) var(--ease),border-color var(--t) var(--ease)}
+.tile:hover{transform:translateY(-4px);border-color:var(--glass-border-strong)}
+.tile .stat{margin-top:auto}
+.delta{font-size:13px;font-weight:700;font-variant-numeric:tabular-nums;display:flex;align-items:center;gap:5px}
+.up{color:var(--green)}.down{color:var(--crimson-soft)}
+.tile--gold .stat{color:var(--gold)}
+.tile--gold{border-color:rgba(232,208,138,.20)}
+.tile--gold:hover{border-color:rgba(232,208,138,.45);box-shadow:0 12px 40px rgba(0,0,0,.45),0 0 24px rgba(201,168,76,.18)}
+/* chart */
+.seg{display:flex;gap:3px;background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--r-btn);padding:4px}
+.seg button{border:0;background:transparent;border-radius:var(--r-btn);height:30px;padding:0 14px;font-size:13px;font-weight:600;color:var(--text-3);transition:color var(--t),background var(--t)}
+.seg button:hover{color:var(--text-2)}
+.seg button.on{background:var(--glass-2);color:#fff}
+.chartwrap{padding:22px}
+.xaxis{display:flex;justify-content:space-between;margin-top:10px}
+.nodata{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;height:180px;border-radius:18px;border:1px dashed rgba(255,255,255,.13);background:rgba(255,255,255,.015);text-align:center;padding:0 24px}
+.nodata svg{width:38px;height:38px;fill:none;stroke:rgba(255,255,255,.22);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round;margin-bottom:6px}
+.nodata b{font-size:15px;font-weight:700;color:var(--text-2)}
+.nodata p{margin:0;font-size:12.5px;line-height:18px;font-weight:300;color:var(--text-3);max-width:340px;text-wrap:pretty}
+.nodata .lnk{margin-top:10px;background:none;border:0;padding:0;font:inherit;font-size:12px;font-weight:700;letter-spacing:.05em;color:var(--crimson-soft);cursor:pointer}
+.nodata .lnk:hover{color:#F0C3C9}
+.card[data-empty] .chartwrap .chart,.card[data-empty] .chartwrap .xaxis{display:none}
+.card:not([data-empty]) .chartwrap .nodata{display:none}
+/* table */
+.tbl{width:100%;border-collapse:collapse}
+.tbl th{text-align:left;padding:0 22px;height:38px;background:rgba(255,255,255,.03);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--text-3);border-bottom:1px solid var(--glass-border)}
+.tbl td{padding:0 22px;height:56px;border-bottom:1px solid var(--glass-border);font-size:14px;vertical-align:middle}
+.tbl tr:last-child td{border-bottom:0}
+.tbl tbody tr{transition:background var(--t) var(--ease)}
+.tbl tbody tr:hover{background:rgba(255,255,255,.03)}
+.tbl .r{text-align:right;font-variant-numeric:tabular-nums;font-weight:700}
+.thumb{width:44px;height:44px;border-radius:14px;background:var(--glass-2);border:1px solid var(--glass-border);display:grid;place-items:center;font-weight:700;font-size:15px;color:var(--text-3);flex:none}
+.prod{display:flex;align-items:center;gap:14px}
+.chip{display:inline-flex;align-items:center;height:26px;padding:0 12px;border-radius:var(--r-btn);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--glass-2);border:1px solid var(--glass-border);color:var(--text-2)}
+.chip--crimson{background:var(--crimson-tint);border-color:rgba(192,75,92,.30);color:#DFA3AC}
+/* level */
+.level{padding:24px;display:grid;grid-template-columns:1fr auto;gap:16px 24px;align-items:center}
+.level .bar{height:6px;margin-top:14px}
+/* rail */
+.note{display:flex;gap:11px;padding:13px 18px;border-bottom:1px solid var(--glass-border);transition:background var(--t) var(--ease)}
+.note:last-child{border-bottom:0}
+.note:hover{background:rgba(255,255,255,.03)}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--crimson-soft);box-shadow:0 0 10px rgba(192,75,92,.7);margin-top:7px;flex:none}
+.dot--off{background:rgba(255,255,255,.12);box-shadow:none}
+.week{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;padding:18px 14px 10px}
+.day{border-radius:14px;padding:7px 0;text-align:center;border:1px solid transparent}
+.day b{display:block;font-size:15px;font-weight:700;margin-top:3px}
+.day--has{background:var(--glass);border-color:var(--glass-border)}
+.day--today{background:var(--crimson-tint);border-color:rgba(192,75,92,.34)}
+.day--today b{color:#fff}
+.ev{display:flex;gap:12px;padding:13px 18px;border-top:1px solid var(--glass-border)}
+.ev .when{font-size:11px;font-weight:700;letter-spacing:.04em;color:var(--beige);width:54px;flex:none;font-variant-numeric:tabular-nums;line-height:15px}
+.ann{padding:16px 18px;border-bottom:1px solid var(--glass-border)}
+.ann:last-child{border-bottom:0}
+/* mobile */
+.m{width:390px;height:844px;overflow-y:auto;scrollbar-width:none}
+.m::-webkit-scrollbar{display:none}
+.mtop{position:sticky;top:0;z-index:5;background:rgba(11,10,13,.72);backdrop-filter:blur(18px);border-bottom:1px solid var(--glass-border);padding:14px 16px;display:flex;align-items:center;gap:12px}
+.mbody{position:relative;padding:16px 16px 24px;display:flex;flex-direction:column;gap:18px}
+.mtiles{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mtiles .tile{min-height:120px;padding:16px;gap:10px}
+.mtiles .stat{font-size:28px;line-height:34px}
+.tabbar{position:sticky;bottom:0;z-index:5;display:grid;grid-template-columns:repeat(5,1fr);background:rgba(11,10,13,.80);backdrop-filter:blur(18px);border-top:1px solid var(--glass-border);padding:9px 4px 12px}
+.tab{display:flex;flex-direction:column;align-items:center;gap:5px;font-size:10px;font-weight:600;letter-spacing:.02em;color:var(--text-3);padding:2px 0}
+.tab svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.5}
+.tab.on{color:#fff}
+.tab.on svg{color:var(--crimson-soft)}
+</style>
+<link rel="stylesheet" href="demo.css">
+<style>.av--img{overflow:hidden;padding:0;background:#0F0D12}.av--img img{width:100%;height:100%;object-fit:cover;display:block;border-radius:50%}</style>
+<style>.thumb--img{overflow:hidden;padding:0;background:#0F0D12;position:relative}.thumb--img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}</style>
+<style>.dm-logo{height:20px;width:auto;display:block}.dm-sub{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#837F8A;white-space:nowrap}.side-logo{height:22px;width:auto;display:block}.gnav-logo{height:20px;width:auto;display:block;flex:none}</style>
+<style>.prof{display:flex;gap:11px;align-items:center;padding:2px 8px 18px;border-bottom:1px solid var(--glass-border);text-decoration:none;color:inherit}.prof:hover .sm{color:var(--crimson-soft)}.gnav{display:flex;align-items:center;gap:32px;height:58px;padding:0 40px;border-bottom:1px solid var(--glass-border);background:rgba(255,255,255,.02);backdrop-filter:blur(14px)}.gnav-logo{height:20px;width:auto;display:block}.gnav .lnk{display:flex;gap:28px;margin-left:20px}.gnav .lnk a{font-size:14px;color:var(--text-2)}.gnav .lnk a:hover{color:#fff}.gnav .rt{margin-left:auto;display:flex;align-items:center;gap:10px}.crumbs{display:flex;align-items:center;gap:9px;padding:13px 40px;border-bottom:1px solid var(--glass-border);font-size:12px;color:var(--text-3)}.crumbs a{color:var(--text-3)}.crumbs a:hover{color:var(--crimson-soft)}.crumbs i{font-style:normal;color:#4a464f}.crumbs b{color:var(--text-1);font-weight:600}.av--sm{width:30px;height:30px;font-size:11px;box-shadow:none}</style>
+</head>
+<body class="dm">
+<div class="dm-bar">
+  <a class="dm-home" href="index.html"><img src="logo.svg" alt="THOUSUKA" class="dm-logo" /><span class="dm-sub">Кабинет селлера · демо</span></a>
+  <div class="dm-now"><b>Сводка</b><span>главный экран мастерской</span></div>
+  <div class="dm-nav">
+    <a class="dm-btn" href="nastroyki.html" title="Предыдущий экран">←</a>
+    <select class="dm-sel" onchange="location.href=this.value"><option value="svodka.html" selected>Сводка</option><option value="vitrina.html">Витрина</option><option value="novaya-poziciya.html">Новая позиция · доставка</option><option value="zakazy.html">Заказы</option><option value="zakaz-1043.html">Заказ №1043</option><option value="raspisanie.html">Расписание</option><option value="finansy.html">Финансы</option><option value="analitika.html">Аналитика</option><option value="otzyvy.html">Отзывы</option><option value="prodvizhenie.html">Продвижение</option><option value="soobscheniya.html">Сообщения</option><option value="profil.html">Профиль бренда</option><option value="nastroyki.html">Настройки</option></select>
+    <a class="dm-btn" href="vitrina.html" title="Следующий экран">→</a>
+  </div>
+</div>
+<div class="dm-stage"><div class="frame" style="width:1600px"><div class="app">
+
+  <aside class="side">
+    <a href="profil.html" class="prof"><span class="av av--img"><img src="img/avatar.png" alt="" /></span><span><span class="sm" style="font-weight:700;display:block">Ника Раевская</span><span class="xs t3">Керамика · уровень «Своя»</span></span></a>
+    <nav class="nav"><a href="svodka.html" class="on"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1"></rect><rect x="14" y="3" width="7" height="5" rx="1"></rect><rect x="14" y="12" width="7" height="9" rx="1"></rect><rect x="3" y="16" width="7" height="5" rx="1"></rect></svg>Сводка</a><a href="vitrina.html"><svg viewBox="0 0 24 24"><path d="M3 9h18M4 9l1-4h14l1 4M5 9v11h14V9"></path></svg>Витрина<span class="badge">12</span></a><a href="zakazy.html"><svg viewBox="0 0 24 24"><path d="M4 7h16v13H4zM9 7V4h6v3"></path></svg>Заказы<span class="badge">3</span></a><a href="raspisanie.html"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg>Расписание<span class="badge">5</span></a><a href="finansy.html"><svg viewBox="0 0 24 24"><path d="M3 7h18v11H3zM3 11h18"></path></svg>Финансы</a><a href="analitika.html"><svg viewBox="0 0 24 24"><path d="M4 20V9M10 20V4M16 20v-7M22 20H2"></path></svg>Аналитика</a><a href="otzyvy.html"><svg viewBox="0 0 24 24"><path d="M20 15a2 2 0 0 1-2 2H8l-4 4V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2z"></path></svg>Отзывы<span class="badge">3</span></a><a href="prodvizhenie.html"><svg viewBox="0 0 24 24"><path d="M4 11l16-6-6 16-2-7z"></path></svg>Продвижение</a><a href="soobscheniya.html"><svg viewBox="0 0 24 24"><path d="M3 6h18v12H3z"></path><path d="M3 7l9 6 9-6"></path></svg>Сообщения<span class="badge">2</span></a><a href="profil.html"><svg viewBox="0 0 24 24"><path d="M4 20a8 8 0 0 1 16 0"></path><circle cx="12" cy="8" r="4"></circle></svg>Профиль бренда</a><a href="nastroyki.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M12 3v3M12 18v3M3 12h3M18 12h3M6 6l2 2M16 16l2 2M18 6l-2 2M8 16l-2 2"></path></svg>Настройки</a></nav>
+    <div class="sidefoot">
+      <div class="levelmini">
+        <div class="row"><span class="eyebrow" style="color:var(--beige)">Уровень</span><span class="xs num t2">62%</span></div>
+        <div class="sm" style="margin-top:7px;font-weight:700">Своя</div>
+        <div class="bar"><i style="width:62%"></i></div>
+      </div>
+    </div>
+  </aside>
+  <div>
+    <div class="gnav">
+      <img src="logo.svg" alt="THOUSUKA" class="gnav-logo" />
+      <div class="lnk"><a href="#">Маркетплейс</a><a href="#">Клуб</a><a href="#">События</a><a href="#">Блог</a></div>
+    </div>
+    <div class="crumbs"><a href="index.html">Главная</a><i>/</i><a href="svodka.html">Мастерская</a><i>/</i><b>Сводка</b></div>
+  <main class="main">
+    <div class="col">
+
+      <header>
+        <h1 class="display">Доброе утро, Ника</h1>
+        <p class="body" style="margin:8px 0 0">3 заказа ждут сборки</p>
+      </header>
+
+      <!-- ЗАДАЧИ ДНЯ. Пустой вариант: карточка с одной строкой по центру, 48px по вертикали —
+           «Всё сделано. Хороший день» (Lato 400 14/22, --text-2), без иконок и кнопок. -->
+      <section class="card">
+        <div class="card__h"><span class="eyebrow">Задачи дня</span><span class="link">4 задачи</span></div>
+        <div class="task">
+          <span class="orb orb--sm"><svg viewBox="0 0 24 24"><path d="M6 7h12l1.5 13H4.5L6 7zM9 7V5a3 3 0 0 1 6 0v2"></path></svg></span>
+          <p>Подтвердить 2 новых заказа<span class="meta">Поступили сегодня, 09:12 и 09:40</span></p>
+          <button class="btn sp">Открыть</button>
+        </div>
+        <div class="task task--urgent">
+          <span class="orb orb--sm orb--crimson"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg></span>
+          <p>Собрать заказ №1043 — сегодня последний день<span class="meta">Передать в СДЭК до 18:00</span></p>
+          <button class="btn btn--cta sp">Собрать</button>
+        </div>
+        <div class="task">
+          <span class="orb orb--sm"><svg viewBox="0 0 24 24"><path d="M20 15a2 2 0 0 1-2 2H8l-4 4V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v9z"></path></svg></span>
+          <p>Ответить на 3 вопроса<span class="meta">Самый ранний ждёт 19 часов</span></p>
+          <button class="btn sp">Ответить</button>
+        </div>
+        <div class="task">
+          <span class="orb orb--sm"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 8v5M12 16h.01"></path></svg></span>
+          <p>Позиция «Браслет Луна» отклонена<span class="meta">Модерация: нужны фото на белом фоне</span></p>
+          <button class="btn sp">Посмотреть</button>
+        </div>
+      </section>
+
+      <section class="tiles">
+        <div class="tile"><span class="eyebrow">Заказов за 7 дней</span><span class="stat">14</span><span class="delta up">▲ 3</span></div>
+        <div class="tile"><span class="eyebrow">Выручка за 7 дней</span><span class="stat">86 400 ₽</span><span class="delta up">▲ 12%</span></div>
+        <div class="tile tile--gold"><span class="eyebrow" style="color:var(--beige)">Доступно к выводу</span><span class="stat">32 100 ₽</span><button class="btn btn--sm btn--gold" style="align-self:flex-start">Вывести</button></div>
+        <div class="tile"><span class="eyebrow">Рейтинг</span><span class="stat">4.8</span><span class="delta t3" style="font-weight:400">из 5 · 47 отзывов</span></div>
+      </section>
+
+      <section class="card" data-empty>
+        <div class="card__h"><div><span class="eyebrow">Продажи</span><div class="xs t3" style="margin-top:5px">25 июля — 23 августа</div></div>
+          <div class="seg" data-seg=""><button class="on" data-k="rev">Выручка</button><button data-k="ord">Заказы</button><button data-k="vw">Просмотры</button></div>
+        </div>
+        <div class="chartwrap">
+          <div class="nodata">
+            <svg viewBox="0 0 24 24"><path d="M3 20h18"/><path d="M4 16l4.5-4.5 3 3L20 6"stroke-dasharray="3 3"/><circle cx="12" cy="12" r="9" opacity="0"/></svg>
+            <b>Пока нет данных</b>
+            <p>За выбранный период продаж не было. График появится после первого оплаченного заказа — обычно в течение недели после публикации позиций.</p>
+            <button class="lnk" type="button" data-showdata>Показать на примере данных →</button>
+          </div>
+          <svg class="chart" viewBox="0 0 720 180" width="100%" height="180" preserveAspectRatio="none"></svg>
+          <div class="xaxis"><span class="eyebrow">25 июля</span><span class="eyebrow">1 августа</span><span class="eyebrow">9 августа</span><span class="eyebrow">16 августа</span><span class="eyebrow">23 августа</span></div>
+        </div>
+      </section>
+
+      <section class="card">
+        <div class="card__h"><span class="eyebrow">Лучшие позиции</span><a href="#" class="link">Вся витрина</a></div>
+        <table class="tbl">
+          <thead><tr><th style="width:46%">Позиция</th><th class="r">Просмотры</th><th class="r">Заказы</th><th class="r">Конверсия</th></tr></thead>
+          <tbody>
+            <tr><td><div class="prod"><div class="thumb thumb--img"><img src="img/chasha.avif" alt="" /></div><div style="flex:1"><div style="font-weight:600">Чаша «Тишина», песочная</div><div class="xs t3" style="margin-top:3px">4 800 ₽</div></div><span class="chip">Товар</span></div></td><td class="r">1 284</td><td class="r">9</td><td class="r">0,70%</td></tr>
+            <tr><td><div class="prod"><div class="thumb thumb--img"><img src="img/retrit.avif" alt="" /></div><div style="flex:1"><div style="font-weight:600">Ретрит «Молчание», Суздаль</div><div class="xs t3" style="margin-top:3px">48 000 ₽</div></div><span class="chip">Событие</span></div></td><td class="r">964</td><td class="r">6</td><td class="r">0,62%</td></tr>
+            <tr><td><div class="prod"><div class="thumb thumb--img"><img src="img/goncharka.avif" alt="" /></div><div style="flex:1"><div style="font-weight:600">Курс «Гончарный круг с нуля»</div><div class="xs t3" style="margin-top:3px">12 400 ₽</div></div><span class="chip chip--crimson">Курс</span></div></td><td class="r">877</td><td class="r">11</td><td class="r">1,25%</td></tr>
+            <tr><td><div class="prod"><div class="thumb thumb--img"><img src="img/vaza.avif" alt="" /></div><div style="flex:1"><div style="font-weight:600">Индивидуальный мастер-класс</div><div class="xs t3" style="margin-top:3px">7 500 ₽</div></div><span class="chip">Услуга</span></div></td><td class="r">612</td><td class="r">4</td><td class="r">0,65%</td></tr>
+            <tr><td><div class="prod"><div class="thumb thumb--img"><img src="img/vaza.avif" alt="" /></div><div style="flex:1"><div style="font-weight:600">Ваза «Дым», графит</div><div class="xs t3" style="margin-top:3px">9 200 ₽</div></div><span class="chip">Товар</span></div></td><td class="r">548</td><td class="r">3</td><td class="r">0,55%</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="card level">
+        <div>
+          <span class="eyebrow" style="color:var(--beige)">Уровень продавца</span>
+          <h2 class="h2" style="margin:8px 0 0">Уровень: Своя</h2>
+          <div class="bar" style="max-width:440px"><i style="width:62%"></i></div>
+          <p class="sm t2" style="margin:12px 0 0">До уровня «Голос»: 12 заказов. Открывает попадание в редакторские подборки и комиссию 9% вместо 12%.</p>
+        </div>
+        <div style="text-align:right"><div class="stat gold">62<span style="font-size:20px">%</span></div><div class="xs t3" style="margin-top:3px">38 из 50 заказов</div></div>
+      </section>
+
+    </div>
+
+    <aside class="rail">
+      <section class="card">
+        <div class="card__h" style="padding:16px 18px"><span class="eyebrow">Уведомления</span><a href="#" class="link">Все</a></div>
+        <div class="note"><span class="dot"></span><div><div class="sm">Новый заказ №1047 — Алина Ершова</div><div class="xs t3" style="margin-top:3px">09:40</div></div></div>
+        <div class="note"><span class="dot"></span><div><div class="sm">Вопрос к позиции «Чаша Тишина»</div><div class="xs t3" style="margin-top:3px">08:15</div></div></div>
+        <div class="note"><span class="dot dot--off"></span><div><div class="sm">Выплата 24 800 ₽ отправлена в банк</div><div class="xs t3" style="margin-top:3px">Вчера, 19:02</div></div></div>
+        <div class="note"><span class="dot dot--off"></span><div><div class="sm">Отзыв 5 из 5 от Дарьи Мельник</div><div class="xs t3" style="margin-top:3px">Вчера, 14:37</div></div></div>
+        <div class="note"><span class="dot dot--off"></span><div><div class="sm">«Браслет Луна» отклонён модерацией</div><div class="xs t3" style="margin-top:3px">21 августа</div></div></div>
+      </section>
+
+      <section class="card">
+        <div class="card__h" style="padding:16px 18px"><span class="eyebrow">Ближайшее</span><a href="#" class="link">Расписание</a></div>
+        <div class="week">
+          <div class="day"><span class="eyebrow">пн</span><b class="t3">24</b></div>
+          <div class="day day--today"><span class="eyebrow">вт</span><b>25</b></div>
+          <div class="day day--has"><span class="eyebrow">ср</span><b>26</b></div>
+          <div class="day"><span class="eyebrow">чт</span><b class="t3">27</b></div>
+          <div class="day day--has"><span class="eyebrow">пт</span><b>28</b></div>
+          <div class="day"><span class="eyebrow">сб</span><b class="t3">29</b></div>
+          <div class="day day--has"><span class="eyebrow">вс</span><b>30</b></div>
+        </div>
+        <div class="ev"><span class="when">26 АВГ<br>11:00</span><div><div class="sm" style="font-weight:600">Мастер-класс, 4 места из 6</div><div class="xs t3" style="margin-top:3px">Студия на Рочдельской</div></div></div>
+        <div class="ev"><span class="when">28 АВГ<br>16:30</span><div><div class="sm" style="font-weight:600">Консультация — Ольга Тихонова</div><div class="xs t3" style="margin-top:3px">Онлайн, 60 минут</div></div></div>
+        <div class="ev"><span class="when">30 АВГ<br>10:00</span><div><div class="sm" style="font-weight:600">Ретрит «Молчание» — сбор группы</div><div class="xs t3" style="margin-top:3px">Суздаль, 6 участниц</div></div></div>
+      </section>
+
+      <section class="card">
+        <div class="card__h" style="padding:16px 18px"><span class="eyebrow">Что нового</span></div>
+        <div class="ann"><span class="chip chip--crimson">Подборка</span><div class="sm" style="margin:10px 0 0;font-weight:600">Осенняя подборка «Тихая керамика»</div><p class="xs t2" style="margin:5px 0 10px;line-height:18px">Заявки до 29 августа. Отбор — редакция THOUSUKA.</p><a href="#" class="link" style="color:var(--text-1)">Подать позицию</a></div>
+        <div class="ann"><div class="sm" style="font-weight:600">Новые правила возвратов с 1 сентября</div><p class="xs t2" style="margin:5px 0 10px;line-height:18px">Срок ответа на возврат — 24 часа вместо 48.</p><a href="#" class="link" style="color:var(--text-1)">Что меняется</a></div>
+      </section>
+    </aside>
+  </main>
+  </div>
+</div></div></div>
+<script src="demo.js"></script>
+<script>
+(function(){
+var DATA={rev:[2100,0,4800,3200,7400,5100,0,4800,9200,3600,12400,4800,0,6100,7500,4800,0,11800,5400,3200,9600,4800,7400,0,12400,8100,4800,15200,9600,13800],
+ord:[1,0,2,1,3,2,0,1,3,1,4,2,0,2,3,1,0,4,2,1,3,2,3,0,4,3,2,5,4,5],
+vw:[142,118,196,204,168,240,132,188,312,224,286,198,146,232,268,214,158,344,262,196,308,240,286,174,362,298,236,404,338,392]};
+function draw(){document.querySelectorAll('.chart').forEach(function(svg){
+  var card=svg.closest('.card');if(card.hasAttribute('data-empty'))return;
+  var k=card.querySelector('[data-seg] .on').dataset.k,d=DATA[k],W=720,H=180,P=8,max=Math.max.apply(null,d)*1.15||1;
+  var x=function(i){return P+i*(W-P*2)/(d.length-1)},y=function(v){return H-14-(v/max)*(H-30)};
+  var pts=d.map(function(v,i){return [x(i),y(v)]});
+  var line=pts.map(function(p,i){return (i?'L':'M')+p[0].toFixed(1)+' '+p[1].toFixed(1)}).join(' ');
+  var grid=[0,.25,.5,.75,1].map(function(g){var yy=(14+g*(H-30)).toFixed(1);return '<line x1="0" x2="720" y1="'+yy+'" y2="'+yy+'" stroke="rgba(255,255,255,0.07)" stroke-width="1" vector-effect="non-scaling-stroke"/>'}).join('');
+  svg.innerHTML='<defs><linearGradient id="g'+k+'" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#9D2235" stop-opacity=".42"/><stop offset="1" stop-color="#9D2235" stop-opacity="0"/></linearGradient></defs>'+grid+'<path d="'+line+' L '+(W-P)+' '+(H-14)+' L '+P+' '+(H-14)+' Z" fill="url(#g'+k+')"/><path d="'+line+'" fill="none" stroke="#C04B5C" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" vector-effect="non-scaling-stroke"/><circle cx="'+pts[pts.length-1][0].toFixed(1)+'" cy="'+pts[pts.length-1][1].toFixed(1)+'" r="3.5" fill="#C04B5C"/>';
+});}
+document.querySelectorAll('[data-seg]').forEach(function(s){s.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;s.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)});draw();});});
+document.addEventListener('click',function(e){
+  var t=e.target.closest('[data-showdata]');if(t){t.closest('.card').removeAttribute('data-empty');draw();return;}
+  var r=e.target.closest('[data-showempty]');if(r){r.closest('.card').setAttribute('data-empty','');}
+});
+draw();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,385 @@
+/* ═══════════════════════════════════════════════════════════════
+   THOUSUKA Design System — Colors & Typography
+   Made by THOUSUKA · Premium Women's Community & Marketplace
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Font Faces ─────────────────────────────────────────────── */
+@font-face {
+  font-family: 'Lato';
+  src: url('./fonts/Lato-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Lato';
+  src: url('./fonts/Lato-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Lato';
+  src: url('./fonts/Lato-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Lato';
+  src: url('./fonts/Lato-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── Base Color Tokens ──────────────────────────────────────── */
+:root {
+  /* Core brand colors */
+  --color-black:        #000000;   /* Pantone Black C — primary background */
+  --color-near-black:   #0F0D12;   /* Deep near-black from Figma hero */
+  --color-crimson:      #9D2235;   /* Pantone 201 C — main accent */
+  --color-crimson-dark: #941E1D;   /* Darker crimson, from Figma buttons */
+  --color-crimson-deep: #7A1B1B;   /* Deep hover state */
+  --color-white:        #FFFFFF;   /* Pure white */
+  --color-off-white:    #EFEFEF;   /* Light background sections */
+  --color-warm-brick:   #C75D45;   /* Warm copper — labels, dates, UI text */
+
+  /* Gold / Platinum metallic system (CSS-approximated gradients) */
+  --color-gold:         #C9A84C;   /* Gold midpoint */
+  --color-gold-light:   #E8D08A;   /* Light gold sheen */
+  --color-gold-dark:    #8B6914;   /* Deep gold */
+  --color-platinum:     #B8B8C8;   /* Silver-grey platinum */
+  --color-platinum-light: #D8D8E4; /* Light platinum */
+
+  /* Neutrals */
+  --color-grey-dark:    #444444;   /* Dark grey (from Figma canvas bg) */
+  --color-grey-mid:     #767676;   /* Mid grey */
+  --color-grey-light:   #C4C4C4;   /* Light grey */
+  --color-grey-ultra:   #F0F0F0;   /* Ultra-light grey */
+
+  /* UI state colors */
+  --color-glass:        rgba(97, 99, 101, 0.09);  /* Glassmorphism fill */
+  --color-glass-border: rgba(255, 255, 255, 0.12); /* Glass border */
+  --color-glass-strong: rgba(0, 0, 0, 0.4);        /* Strong glass overlay */
+  --color-overlay-crimson: rgba(148, 36, 29, 0.2); /* Crimson image overlay */
+
+  /* Gold gradient (metallic shimmer) */
+  --gradient-gold: linear-gradient(
+    135deg,
+    #8B6914 0%,
+    #C9A84C 30%,
+    #E8D08A 50%,
+    #C9A84C 70%,
+    #8B6914 100%
+  );
+  --gradient-platinum: linear-gradient(
+    135deg,
+    #888899 0%,
+    #B8B8C8 30%,
+    #D8D8E4 50%,
+    #B8B8C8 70%,
+    #888899 100%
+  );
+
+  /* Background gradients */
+  --gradient-hero-dark: linear-gradient(
+    180deg,
+    rgba(15,13,18,0) 0%,
+    rgba(15,13,18,0.6) 60%,
+    rgba(15,13,18,1) 100%
+  );
+  --gradient-section: linear-gradient(
+    180deg,
+    #0F0D12 0%,
+    #000000 100%
+  );
+  --gradient-door: linear-gradient(
+    to bottom,
+    rgba(15,13,18,1) 0%,
+    rgba(15,13,18,0) 20%,
+    rgba(15,13,18,0) 80%,
+    rgba(15,13,18,1) 100%
+  );
+
+  /* ── Semantic Colors ─────────────────────────────────── */
+  --bg-primary:         var(--color-black);
+  --bg-secondary:       var(--color-near-black);
+  --bg-light:           var(--color-off-white);
+  --bg-glass:           var(--color-glass);
+
+  --fg-primary:         var(--color-white);
+  --fg-secondary:       rgba(255,255,255,0.7);
+  --fg-tertiary:        rgba(255,255,255,0.45);
+  --fg-on-light:        var(--color-black);
+  --fg-accent:          var(--color-crimson);
+  --fg-gold:            var(--color-gold);
+
+  --cta-fill:           var(--color-crimson-dark);
+  --cta-fill-hover:     var(--color-crimson);
+  --cta-text:           var(--color-white);
+  --cta-outline-border: rgba(255,255,255,0.4);
+
+  --border-subtle:      rgba(255,255,255,0.1);
+  --border-glass:       rgba(255,255,255,0.15);
+  --border-gold:        var(--color-gold);
+
+  --shadow-card: 0 4px 32px rgba(0,0,0,0.6), 0 1px 8px rgba(0,0,0,0.4);
+  --shadow-gold-glow: 0 0 24px rgba(201,168,76,0.35), 0 0 8px rgba(201,168,76,0.2);
+  --shadow-crimson-glow: 0 0 24px rgba(157,34,53,0.5), 0 0 8px rgba(157,34,53,0.25);
+
+  /* ── Spacing Scale ───────────────────────────────────── */
+  --space-2:   2px;
+  --space-4:   4px;
+  --space-8:   8px;
+  --space-12:  12px;
+  --space-16:  16px;
+  --space-20:  20px;
+  --space-24:  24px;
+  --space-32:  32px;
+  --space-40:  40px;
+  --space-48:  48px;
+  --space-56:  56px;
+  --space-64:  64px;
+  --space-80:  80px;
+  --space-96:  96px;
+  --space-120: 120px;
+  --space-160: 160px;
+
+  /* ── Border Radii ────────────────────────────────────── */
+  --radius-sm:    8px;
+  --radius-md:    16px;
+  --radius-lg:    24px;
+  --radius-xl:    32px;
+  --radius-2xl:   48px;
+  --radius-pill:  9999px;
+  --radius-card:  24px;   /* Primary card radius */
+  --radius-glass: 32px;   /* Glassmorphism cards */
+
+  /* ── Typography Scale ────────────────────────────────── */
+  --font-display:     'Lato', 'Helvetica Neue', sans-serif;
+  --font-body:        'Lato', 'Helvetica Neue', sans-serif;
+  --font-brand:       'Civane', 'Lato', sans-serif; /* Logo / wordmark only */
+
+  /* Display / Hero scale — ALL CAPS headings */
+  --text-display-xl:  clamp(56px, 6vw, 120px);
+  --text-display-lg:  clamp(48px, 5vw, 80px);
+  --text-display-md:  clamp(36px, 4vw, 65px);
+  --text-display-sm:  clamp(28px, 3vw, 48px);
+
+  /* Body scale */
+  --text-title-lg:    clamp(22px, 2.5vw, 32px);
+  --text-title-md:    clamp(18px, 2vw, 24px);
+  --text-title-sm:    18px;
+  --text-body-lg:     clamp(16px, 1.5vw, 20px);
+  --text-body-md:     16px;
+  --text-body-sm:     14px;
+  --text-caption:     12px;
+  --text-label:       11px;
+
+  /* Line heights */
+  --leading-tight:    1.1;
+  --leading-heading:  1.2;
+  --leading-body:     1.55;
+  --leading-relaxed:  1.7;
+
+  /* Letter spacing */
+  --tracking-display: 0.04em;   /* Headlines — slight openness */
+  --tracking-caps:    0.08em;   /* All-caps labels */
+  --tracking-wide:    0.12em;   /* Spaced-out labels */
+  --tracking-body:    0.005em;  /* Body — near-normal */
+
+  /* Transition */
+  --transition-fast:  180ms ease;
+  --transition-mid:   350ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-slow:  600ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --transition-breathe: 1200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ── Typography Utility Classes ─────────────────────────────── */
+
+/* Display — always ALL CAPS, Lato Bold */
+.t-display-xl {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-display-xl);
+  line-height: var(--leading-tight);
+  letter-spacing: var(--tracking-display);
+  text-transform: uppercase;
+  color: var(--fg-primary);
+}
+.t-display-lg {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-display-lg);
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-display);
+  text-transform: uppercase;
+  color: var(--fg-primary);
+}
+.t-display-md {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-display-md);
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-display);
+  text-transform: uppercase;
+  color: var(--fg-primary);
+}
+.t-display-sm {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--text-display-sm);
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-display);
+  text-transform: uppercase;
+  color: var(--fg-primary);
+}
+
+/* Section label — small caps with wide tracking */
+.t-label {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--text-label);
+  line-height: 1;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--fg-tertiary);
+}
+.t-label-accent {
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--text-label);
+  line-height: 1;
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-crimson);
+}
+
+/* Body — sentence case, light weight */
+.t-body-lg {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-body);
+  letter-spacing: var(--tracking-body);
+  color: var(--fg-secondary);
+}
+.t-body-md {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: var(--text-body-md);
+  line-height: var(--leading-body);
+  color: var(--fg-secondary);
+}
+.t-body-sm {
+  font-family: var(--font-body);
+  font-weight: 300;
+  font-size: var(--text-body-sm);
+  line-height: var(--leading-body);
+  color: var(--fg-tertiary);
+}
+
+/* Title — medium weight, sentence case */
+.t-title-lg {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--text-title-lg);
+  line-height: var(--leading-heading);
+  color: var(--fg-primary);
+}
+.t-title-md {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: var(--text-title-md);
+  line-height: var(--leading-heading);
+  color: var(--fg-primary);
+}
+
+/* Accent / highlight text */
+.t-accent-crimson { color: var(--color-crimson); }
+.t-accent-gold    { color: var(--color-gold); }
+.t-accent-brick   { color: var(--color-warm-brick); }
+
+/* ── Backdrop / Glassmorphism ────────────────────────────────── */
+.glass {
+  background: rgba(15, 13, 18, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-glass);
+}
+.glass-light {
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius-card);
+}
+
+/* ── CTA Button System ───────────────────────────────────────── */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 36px;
+  background: var(--cta-fill);
+  color: var(--cta-text);
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--text-body-lg);
+  letter-spacing: 0.02em;
+  border: none;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: background var(--transition-fast), box-shadow var(--transition-mid);
+  text-decoration: none;
+}
+.btn-primary:hover {
+  background: var(--cta-fill-hover);
+  box-shadow: var(--shadow-crimson-glow);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 36px;
+  background: var(--color-glass);
+  color: var(--fg-primary);
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: var(--text-body-lg);
+  letter-spacing: 0.02em;
+  border: 1px solid var(--cta-outline-border);
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-mid);
+  text-decoration: none;
+}
+.btn-ghost:hover {
+  border-color: rgba(255,255,255,0.6);
+  box-shadow: 0 0 16px rgba(255,255,255,0.08);
+}
+
+.btn-gold {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 36px;
+  background: var(--gradient-gold);
+  color: var(--color-black);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: var(--text-body-lg);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  border: none;
+  border-radius: var(--radius-pill);
+  cursor: pointer;
+  transition: box-shadow var(--transition-mid);
+  text-decoration: none;
+}
+.btn-gold:hover {
+  box-shadow: var(--shadow-gold-glow);
+}

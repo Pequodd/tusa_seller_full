@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Кабинет селлера · демо · Made by THOUSUKA</title>
+<link rel="stylesheet" href="assets/colors_and_type.css">
+<style>
+@font-face{font-family:'Lato';src:url('assets/fonts/Lato-Light.ttf') format('truetype');font-weight:300;font-display:swap}
+@font-face{font-family:'Lato';src:url('assets/fonts/Lato-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'Lato';src:url('assets/fonts/Lato-Bold.ttf') format('truetype');font-weight:700;font-display:swap}
+*{box-sizing:border-box}
+body{margin:0;background:#0B0A0D;color:#EFEFEF;font-family:'Lato',system-ui,sans-serif;font-weight:400;-webkit-font-smoothing:antialiased}
+a{color:#DFA3AC}a:hover{color:#F0C3C9}
+.pg{max-width:1120px;margin:0 auto;padding:72px 40px 96px}
+.mark{display:flex;align-items:center;gap:12px}
+.mark i{width:28px;height:28px;border-radius:50%;border:1.5px solid #EFEFEF;display:block;position:relative;flex:none}
+.mark i::after{content:"";position:absolute;left:50%;top:4px;width:1.5px;height:10px;background:#EFEFEF;transform:translateX(-50%)}
+.mark b{font-size:15px;font-weight:700;letter-spacing:.18em;display:block;line-height:1}
+.mark span{display:block;margin-top:5px;font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;color:#837F8A}
+h1{margin:44px 0 0;font-size:56px;line-height:1.02;font-weight:700;letter-spacing:.03em;text-transform:uppercase}
+.lead{margin:18px 0 0;max-width:640px;font-size:16px;line-height:26px;font-weight:300;color:#A8A3AE;text-wrap:pretty}
+.meta{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+.chip{display:inline-flex;align-items:center;height:28px;padding:0 13px;border-radius:9999px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:#A8A3AE}
+.chip--crim{border-color:rgba(192,75,92,.45);background:rgba(157,34,53,.16);color:#F0C3C9}
+.eyebrow{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#837F8A}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:18px;margin-top:22px}
+.tile{display:flex;flex-direction:column;gap:9px;padding:24px 24px 22px;border-radius:24px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);text-decoration:none;color:inherit;transition:transform .4s cubic-bezier(.25,.46,.45,.94),border-color .4s cubic-bezier(.25,.46,.45,.94),box-shadow .4s cubic-bezier(.25,.46,.45,.94)}
+.tile:hover{transform:translateY(-4px);border-color:rgba(192,75,92,.5);box-shadow:0 4px 32px rgba(0,0,0,.6),0 0 24px rgba(157,34,53,.22)}
+.tile .n{font-size:11px;font-weight:700;letter-spacing:.14em;color:#C04B5C;font-variant-numeric:tabular-nums}
+.tile h2{margin:0;font-size:20px;font-weight:700;line-height:1.2;color:#EFEFEF}
+.tile p{margin:0;font-size:13.5px;line-height:20px;font-weight:300;color:#A8A3AE}
+.tile .go{margin-top:6px;font-size:12px;font-weight:700;letter-spacing:.06em;color:#DFA3AC}
+.sec{margin-top:54px}
+.note{margin-top:44px;padding:20px 22px;border-radius:20px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);font-size:13px;line-height:20px;font-weight:300;color:#A8A3AE;max-width:760px}
+.note b{color:#EFEFEF;font-weight:700}
+@media(max-width:640px){.pg{padding:48px 22px 72px}h1{font-size:38px}}
+</style>
+</head>
+<body>
+<div class="pg">
+  <div class="mark"><img src="logo.svg" alt="THOUSUKA" style="height:26px;width:auto;display:block" /></div>
+  <h1>Кабинет селлера</h1>
+  <p class="lead">Четырнадцать сверстанных экранов, связанных живой навигацией: все пункты бокового меню кликабельны, кнопки и строки заказов ведут дальше. Стрелки ← → на клавиатуре листают экраны.</p>
+  <div class="meta"><span class="chip">Десктоп 1600</span><span class="chip">14 экранов</span><span class="chip chip--crim">Кликабельно</span></div>
+
+  <div class="sec">
+    <span class="eyebrow">Экраны</span>
+    <div class="grid">
+      <a class="tile" href="svodka.html"><span class="n">01</span><h2>Сводка</h2><p>Главный экран мастерской: задачи дня, выручка, заказы в работе.</p><span class="go">Открыть →</span></a>
+      <a class="tile" href="vitrina.html"><span class="n">02</span><h2>Витрина</h2><p>Таблица позиций, фильтры по типу и статусу, массовые действия.</p><span class="go">Открыть →</span></a>
+      <a class="tile" href="poziciya.html"><span class="n">03</span><h2>Позиция · редактирование</h2><p>Карточка позиции целиком: фото, цена и остаток, доставка, характеристики, предпросмотр и статус публикации.</p></a>
+      <a class="tile" href="novaya-poziciya.html"><span class="n">04</span><h2>Новая позиция · доставка</h2><p>Шаг 5 мастера: география доставки — РФ, СНГ, зарубежная — и условия для покупательницы.</p><span class="go">Открыть →</span></a>
+      <a class="tile" href="zakazy.html"><span class="n">05</span><h2>Заказы</h2><p>Очередь мастерской: что подтвердить, собрать и отправить сегодня.</p><span class="go">Открыть →</span></a>
+      <a class="tile" href="zakaz-1043.html"><span class="n">06</span><h2>Заказ №1043</h2><p>Карточка заказа: состав, покупательница, статусы, отмена.</p><span class="go">Открыть →</span></a>
+      <a class="tile" href="raspisanie.html"><span class="n">07</span><h2>Расписание</h2><p>Слоты услуг и даты событий: занято, свободно, перенос.</p><span class="go">Открыть →</span></a>
+      <a class="tile" href="finansy.html"><span class="n">08</span><h2>Финансы</h2><p>Баланс, вывод средств, чеки самозанятой, комиссия площадки.</p><span class="go">Открыть →</span></a>
+      <a class="tile" href="analitika.html"><span class="n">09</span><h2>Аналитика</h2><p>Воронка, источники трафика, эффективность позиций.</p><span class="go">Открыть →</span></a>
+      <a class="tile" href="otzyvy.html"><span class="n">10</span><h2>Отзывы</h2><p>Очередь ответов с приоритетом на неотвеченные.</p><span class="go">Открыть →</span></a>
+      <a class="tile" href="prodvizhenie.html"><span class="n">11</span><h2>Продвижение</h2><p>Подборки, промокоды, анонсы для участниц клуба.</p><span class="go">Открыть →</span></a>
+      <a class="tile" href="soobscheniya.html"><span class="n">12</span><h2>Сообщения</h2><p>Диалог с покупательницей по заказу — где согласуется доставка.</p><span class="go">Открыть →</span></a>
+      <a class="tile" href="profil.html"><span class="n">13</span><h2>Профиль бренда</h2><p>Витрина мастерской для покупательниц, уровень, тариф, документы.</p><span class="go">Открыть →</span></a>
+      <a class="tile" href="nastroyki.html"><span class="n">14</span><h2>Настройки</h2><p>Реквизиты, налоговый статус, уведомления мастерской.</p><span class="go">Открыть →</span></a>
+    </div>
+  </div>
+
+  <div class="note"><b>Как показывать.</b> Экран подгоняется под ширину окна — на проекторе и ноутбуке вёрстка не поедет. Все одиннадцать пунктов бокового меню открывают свой экран; «Новая позиция» открывается из «Витрины» по кнопке «Добавить позицию».</div>
+</div>
+</body>
+</html>

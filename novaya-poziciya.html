@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Новая позиция · доставка · Кабинет селлера · Made by THOUSUKA</title>
+<link rel="stylesheet" href="assets/colors_and_type.css">
+<link rel="stylesheet" href="../styles-board.css">
+<style>
+.deskhead,.frame{width:1600px}
+.main{max-width:1600px;padding:36px 80px 48px}
+.gnav{padding:0 80px}
+.crumbs{padding:13px 80px}
+.frame::before{background:radial-gradient(820px 520px at 82% -8%,rgba(157,34,53,.16),transparent 62%),radial-gradient(600px 440px at 4% 2%,rgba(124,52,40,.10),transparent 56%)}
+.app--plain{display:block}
+[hidden]{display:none!important}
+.split--wide{grid-template-columns:minmax(0,1fr) 400px;gap:32px}
+.split{gap:32px}
+.card,.orb,.gnav,.crumbs,.top,.tile{backdrop-filter:none;-webkit-backdrop-filter:none}
+.gnav .wm{display:flex;align-items:center;gap:10px;font-size:16px;letter-spacing:.18em}
+.gnav .wm i{width:20px;height:20px;border-radius:50%;border:1.5px solid var(--text-1);display:block;position:relative}
+.gnav .wm i::after{content:"";position:absolute;left:50%;top:3px;width:1.5px;height:7px;background:var(--text-1);transform:translateX(-50%)}
+.brandav{width:38px;height:38px;border-radius:50%;flex:none;display:grid;place-items:center;font-weight:700;font-size:12px;letter-spacing:.06em;background:linear-gradient(150deg,rgba(201,168,143,.26),rgba(255,255,255,.03));border:1px solid var(--glass-border-strong);color:#E4CDB8}
+.brandav--crim{background:linear-gradient(150deg,rgba(192,75,92,.32),rgba(255,255,255,.03));border-color:rgba(192,75,92,.34);color:#F0C3C9}
+.brandav--gold{background:linear-gradient(150deg,rgba(232,208,138,.28),rgba(255,255,255,.03));border-color:rgba(232,208,138,.32);color:var(--gold)}
+.pnum{font-variant-numeric:tabular-nums;letter-spacing:.04em}
+/* zone badges */
+.zn{display:inline-flex;align-items:center;gap:6px;height:24px;padding:0 11px;border-radius:9999px;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap;border:1px solid var(--glass-border);color:var(--text-3);background:rgba(255,255,255,.03)}
+.zn--on{color:#B9EBD3;border-color:rgba(63,185,132,.42);background:rgba(63,185,132,.12)}
+.zn--off{opacity:.5;text-decoration:line-through}
+.zn--bad{color:#F0C3C9;border-color:rgba(192,75,92,.5);background:rgba(157,34,53,.18);text-decoration:none;opacity:1}
+.zn--rf{color:#F0C3C9;border-color:rgba(192,75,92,.45);background:var(--crimson-tint)}
+.zn--cis{color:#F1E2B0;border-color:rgba(232,208,138,.40);background:rgba(232,208,138,.10)}
+.zn--intl{color:#C6DCE4;border-color:rgba(198,220,228,.34);background:rgba(198,220,228,.09)}
+.geo{display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.geo .lb{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3);margin-right:2px}
+/* zone picker */
+.zoneseg{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.zoneopt{text-align:left;padding:15px 17px;border-radius:18px;border:1px solid var(--glass-border);background:rgba(255,255,255,.03);transition:border-color var(--t) var(--ease),background var(--t) var(--ease)}
+.zoneopt b{display:block;font-size:14px;font-weight:700;color:var(--text-1)}
+.zoneopt span{display:block;font-size:12px;line-height:16px;color:var(--text-3);margin-top:5px}
+.zoneopt:hover{border-color:var(--glass-border-strong)}
+.zoneopt.on{border-color:rgba(192,75,92,.55);background:var(--crimson-tint)}
+/* address rows */
+.arow{display:flex;align-items:flex-start;gap:13px;padding:14px 16px;border-radius:18px;border:1px solid var(--glass-border);background:rgba(255,255,255,.03);text-align:left;width:100%;transition:border-color var(--t) var(--ease),background var(--t) var(--ease)}
+.arow:hover{border-color:var(--glass-border-strong)}
+.arow.on{border-color:rgba(192,75,92,.55);background:var(--crimson-tint)}
+.arow .tx{flex:1;min-width:0}
+.arow .tx b{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:13.5px;line-height:20px;font-weight:600;color:var(--text-1)}
+.arow .tx span{display:block;font-size:12px;line-height:17px;color:var(--text-3);margin-top:4px}
+.arow .rad{margin-top:2px}
+.arow .ac{display:flex;gap:6px;flex:none;align-self:center}
+.addrgrid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:18px;align-items:start}
+/* recipient + address block */
+.subhead{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.subhead .lab{flex:none}
+.subhead .xs{color:var(--text-3)}
+.subhead .btn{margin-left:auto}
+.rcp{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.atiles{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.atile{display:flex;align-items:flex-start;gap:12px;padding:15px 16px;border-radius:20px;border:1px solid var(--glass-border);background:rgba(255,255,255,.03);text-align:left;transition:border-color var(--t) var(--ease),background var(--t) var(--ease)}
+.atile:hover{border-color:var(--glass-border-strong)}
+.atile.on{border-color:rgba(192,75,92,.55);background:var(--crimson-tint)}
+.atile .rad{margin-top:2px}
+.atile .tx{flex:1;min-width:0}
+.atile .ttl{font-size:13.5px;line-height:19px;font-weight:600;color:var(--text-1)}
+.atile .mt{font-size:12px;line-height:17px;color:var(--text-3);margin-top:5px}
+.atile .zn{flex:none;margin-top:1px}
+.atile--add{justify-content:center;align-items:center;border-style:dashed;border-color:var(--glass-border-strong);gap:8px;font-size:13px;font-weight:700;color:var(--text-2)}
+.atile--add svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2}
+.atile--add:hover{color:#fff;border-color:rgba(192,75,92,.5)}
+.hr{height:1px;background:var(--glass-border);margin:2px 0}
+/* seller cabinet shell */
+.app:not(.app--plain){display:grid;grid-template-columns:240px minmax(0,1fr);align-items:stretch}
+.app:not(.app--plain) .main{max-width:none;padding:26px 32px 40px}
+.sidemark{display:flex;align-items:center;gap:9px;padding:2px 8px 0}
+.sidemark i{width:19px;height:19px;border-radius:50%;border:1.5px solid var(--text-1);display:block;position:relative;flex:none}
+.sidemark i::after{content:"";position:absolute;left:50%;top:2.5px;width:1.5px;height:7px;background:var(--text-1);transform:translateX(-50%)}
+.sidemark b{display:block;font-weight:700;font-size:15px;letter-spacing:.13em;line-height:1}
+.sidemark span{display:block;margin-top:4px;font-size:8px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:var(--text-3)}
+.lvl{border:1px solid var(--glass-border);border-radius:16px;background:rgba(255,255,255,.03);padding:12px 13px;display:flex;flex-direction:column;gap:8px}
+.lvl .tp{display:flex;align-items:baseline;justify-content:space-between;gap:10px}
+.lvl .tp b{font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--text-3)}
+.lvl .tp span{font-size:11px;color:var(--text-3);font-variant-numeric:tabular-nums}
+.lvl .nm{font-size:13px;font-weight:700}
+.top{padding:16px 32px}
+.dashrow{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px;border-radius:18px;border:1px dashed var(--glass-border-strong);background:transparent;font-size:13px;font-weight:700;color:var(--text-2)}
+.dashrow svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2}
+.dashrow:hover{color:#fff;border-color:rgba(192,75,92,.5)}
+/* payment cards */
+.pcards{display:flex;gap:9px;flex-wrap:nowrap;align-items:stretch}
+.pcard{display:flex;align-items:center;gap:10px;padding:11px 13px;border-radius:16px;border:1px solid var(--glass-border);background:rgba(255,255,255,.03);text-align:left;flex:none}
+.pcard.on{border-color:rgba(192,75,92,.55);background:var(--crimson-tint)}
+.plogo{width:42px;height:28px;border-radius:7px;display:grid;place-items:center;font-size:7.5px;font-weight:700;line-height:1.15;text-align:center;flex:none;color:#0B0A0D}
+.plogo--sber{background:linear-gradient(160deg,#a9e6b8,#7fd39a)}
+.plogo--alfa{background:#e8323c;color:#fff}
+.plogo--tbank{background:#ffdd2d}
+.pcard .nm{display:block;font-size:13px;font-weight:700;line-height:1.2}
+.pcard .ex{display:block;font-size:10px;color:var(--text-3);margin-top:3px}
+.plogo{width:38px;height:27px}
+/* notes */
+.note{display:flex;gap:12px;align-items:flex-start;padding:14px 16px;border-radius:18px;border:1px solid var(--glass-border);background:rgba(255,255,255,.03);font-size:12.5px;line-height:18px;color:var(--text-2)}
+.note--bad{border-color:rgba(192,75,92,.34);background:rgba(157,34,53,.11)}
+.note--ok{border-color:rgba(63,185,132,.3);background:rgba(63,185,132,.08)}
+.note svg{width:17px;height:17px;flex:none;fill:none;stroke:currentColor;stroke-width:1.8;margin-top:1px}
+.note b{color:var(--text-1)}
+/* seller cart rows */
+.srow{display:grid;grid-template-columns:38px minmax(0,1fr) auto;gap:14px;align-items:start;padding:18px 22px;border-bottom:1px solid var(--glass-border)}
+.srow:last-child{border-bottom:0}
+.srow .hd{font-size:14px;font-weight:700;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.srow .it{font-size:12px;color:var(--text-3);margin-top:4px}
+.srow .cond{font-size:12.5px;line-height:18px;color:var(--text-2);margin:10px 0 0}
+.srow.off{opacity:.55}
+.srow.off .hd .ttl{text-decoration:line-through}
+.kv{display:flex;flex-direction:column;gap:11px}
+.kv>div{display:flex;align-items:baseline;justify-content:space-between;gap:14px}
+.kv .k{font-size:13px;color:var(--text-2)}
+.kv .v{font-size:14px;font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+.kv--pay{padding-top:13px;margin-top:2px;border-top:1px solid var(--glass-border)}
+.btn[disabled]{opacity:.36;box-shadow:none;pointer-events:none}
+.hint{display:inline-flex;align-items:center;gap:7px;font-size:11px;color:var(--crimson-soft)}
+.hint i{width:6px;height:6px;border-radius:50%;background:var(--crimson-soft);display:block}
+</style>
+<link rel="stylesheet" href="demo.css">
+<style>.av--img{overflow:hidden;padding:0;background:#0F0D12}.av--img img{width:100%;height:100%;object-fit:cover;display:block;border-radius:50%}</style>
+<style>.dm-logo{height:20px;width:auto;display:block}.dm-sub{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#837F8A;white-space:nowrap}.side-logo{height:22px;width:auto;display:block}.gnav-logo{height:20px;width:auto;display:block;flex:none}</style>
+<style>.prof{display:flex;gap:11px;align-items:center;padding:2px 8px 18px;border-bottom:1px solid var(--glass-border);text-decoration:none;color:inherit}.prof:hover .sm{color:var(--crimson-soft)}</style>
+</head>
+<body class="dm">
+<div class="dm-bar">
+  <a class="dm-home" href="index.html"><img src="logo.svg" alt="THOUSUKA" class="dm-logo" /><span class="dm-sub">Кабинет селлера · демо</span></a>
+  <div class="dm-now"><b>Новая позиция · доставка</b><span>шаг 5 · география доставки</span></div>
+  <div class="dm-nav">
+    <a class="dm-btn" href="vitrina.html" title="Предыдущий экран">←</a>
+    <select class="dm-sel" onchange="location.href=this.value"><option value="svodka.html">Сводка</option><option value="vitrina.html">Витрина</option><option value="novaya-poziciya.html" selected>Новая позиция · доставка</option><option value="zakazy.html">Заказы</option><option value="zakaz-1043.html">Заказ №1043</option><option value="raspisanie.html">Расписание</option><option value="finansy.html">Финансы</option><option value="analitika.html">Аналитика</option><option value="otzyvy.html">Отзывы</option><option value="prodvizhenie.html">Продвижение</option><option value="soobscheniya.html">Сообщения</option><option value="profil.html">Профиль бренда</option><option value="nastroyki.html">Настройки</option></select>
+    <a class="dm-btn" href="zakazy.html" title="Следующий экран">→</a>
+  </div>
+</div>
+<div class="dm-stage"><div class="frame" style="width:1600px"><div class="app">
+      <aside class="side">
+        <a href="profil.html" class="prof"><span class="av av--img"><img src="img/avatar.png" alt="" /></span><span><span class="sm" style="font-weight:700;display:block">Ника Раевская</span><span class="xs t3">Керамика · уровень «Своя»</span></span></a>
+        <nav class="nav"><a href="svodka.html"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1"></rect><rect x="14" y="3" width="7" height="5" rx="1"></rect><rect x="14" y="12" width="7" height="9" rx="1"></rect><rect x="3" y="16" width="7" height="5" rx="1"></rect></svg>Сводка</a><a href="vitrina.html" class="on"><svg viewBox="0 0 24 24"><path d="M3 9h18M4 9l1-4h14l1 4M5 9v11h14V9"></path></svg>Витрина<span class="badge">12</span></a><a href="zakazy.html"><svg viewBox="0 0 24 24"><path d="M4 7h16v13H4zM9 7V4h6v3"></path></svg>Заказы<span class="badge">3</span></a><a href="raspisanie.html"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg>Расписание<span class="badge">5</span></a><a href="finansy.html"><svg viewBox="0 0 24 24"><path d="M3 7h18v11H3zM3 11h18"></path></svg>Финансы</a><a href="analitika.html"><svg viewBox="0 0 24 24"><path d="M4 20V9M10 20V4M16 20v-7M22 20H2"></path></svg>Аналитика</a><a href="otzyvy.html"><svg viewBox="0 0 24 24"><path d="M20 15a2 2 0 0 1-2 2H8l-4 4V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2z"></path></svg>Отзывы<span class="badge">3</span></a><a href="prodvizhenie.html"><svg viewBox="0 0 24 24"><path d="M4 11l16-6-6 16-2-7z"></path></svg>Продвижение</a><a href="soobscheniya.html"><svg viewBox="0 0 24 24"><path d="M3 6h18v12H3z"></path><path d="M3 7l9 6 9-6"></path></svg>Сообщения<span class="badge">2</span></a><a href="profil.html"><svg viewBox="0 0 24 24"><path d="M4 20a8 8 0 0 1 16 0"></path><circle cx="12" cy="8" r="4"></circle></svg>Профиль бренда</a><a href="nastroyki.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M12 3v3M12 18v3M3 12h3M18 12h3M6 6l2 2M16 16l2 2M18 6l-2 2M8 16l-2 2"></path></svg>Настройки</a></nav>
+        <div class="sidefoot">
+          <div class="lvl"><div class="tp"><b>Уровень</b><span>62%</span></div><div class="nm">Своя</div><div class="bar bar--gold"><i style="width:62%"></i></div></div>
+        </div>
+      </aside>
+      <div>
+    <div class="gnav">
+      <img src="logo.svg" alt="THOUSUKA" class="gnav-logo" />
+      <div class="lnk"><a href="#">Маркетплейс</a><a href="#">Клуб</a><a href="#">События</a><a href="#">Блог</a></div>
+    </div>
+    <div class="crumbs"><a href="index.html">Главная</a><i>/</i><a href="svodka.html">Мастерская</a><i>/</i><a href="vitrina.html">Витрина</a><i>/</i><b>Новая позиция</b></div>
+      <div class="top">
+        <div style="display:flex;align-items:center;gap:14px"><a href="#" class="orb orb--sm"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"></path></svg></a><div><div class="h3">Новая позиция</div><div class="xs t3" style="margin-top:3px">Черновик создаётся сам, как только выберешь тип</div></div></div>
+        <div class="sp"><a href="vitrina.html" class="btn btn--sm">Отменить</a></div>
+      </div>
+      <div class="main">
+        <div class="steps">
+          <div class="done"><span class="eyebrow">Шаг 1</span><div class="sm">Тип · Товар</div></div>
+          <div class="done"><span class="eyebrow">Шаг 2</span><div class="sm">Название и описание</div></div>
+          <div class="done"><span class="eyebrow">Шаг 3</span><div class="sm">Фото · 3 шт</div></div>
+          <div class="done"><span class="eyebrow">Шаг 4</span><div class="sm">4 800 ₽ · 7 шт</div></div>
+          <div class="now"><span class="eyebrow" style="color:#DFA3AC">Шаг 5</span><div class="sm">Доставка</div></div>
+        </div>
+        <div class="phead"><div><span class="eyebrow">Шаг 5 из 5 · доставка</span><h2 class="display" style="margin-top:10px">Как и куда ты отправляешь</h2><p class="body t3" style="margin:9px 0 0;max-width:660px">Доставку ты организуешь сама и получаешь оплату за неё напрямую. От нас нужна только география: куда ты готова отправлять.</p></div><div style="display:flex;gap:10px"><a href="vitrina.html" class="btn">Назад</a><a href="vitrina.html" class="btn btn--cta">Опубликовать позицию</a></div></div>
+        <div class="split">
+          <div class="col">
+            <div class="card">
+              <div class="card__h"><div><h3 class="h3">География доставки</h3><div class="xs t3" style="margin-top:5px">Покупательница с адресом вне отмеченных зон не сможет оформить эту позицию</div></div><span class="chip chip--sm chip--crimson">2 зоны из 3</span></div>
+              <div class="rows">
+                <div class="row" style="padding:16px 22px">
+                  <div style="flex:1"><div class="sm" style="font-weight:700;display:flex;align-items:center;gap:9px">Россия <span class="zn zn--rf">РФ</span></div><div class="xs t3" style="margin-top:5px">Почта России и СДЭК из Твери, по городу — курьер</div></div>
+                  <div class="field" style="width:190px"><div class="input" style="height:38px;font-size:13px">350–600 ₽ · 1–2 дня</div></div>
+                  <span class="toggle on"><i></i></span>
+                </div>
+                <div class="row" style="padding:16px 22px">
+                  <div style="flex:1"><div class="sm" style="font-weight:700;display:flex;align-items:center;gap:9px">СНГ <span class="zn zn--cis">СНГ</span></div><div class="xs t3" style="margin-top:5px">Казахстан, Беларусь, Армения и другие — только СДЭК, раз в неделю</div></div>
+                  <div class="field" style="width:190px"><div class="input" style="height:38px;font-size:13px">1 200–2 500 ₽ · 7–14 дней</div></div>
+                  <span class="toggle on"><i></i></span>
+                </div>
+                <div class="row" style="padding:16px 22px">
+                  <div style="flex:1"><div class="sm" style="font-weight:700;display:flex;align-items:center;gap:9px">Зарубежная доставка <span class="zn zn--intl">Зарубеж</span></div><div class="xs t3" style="margin-top:5px">Пока не отправляю: хрупкая керамика и таможня. Включу, когда буду готова</div></div>
+                  <div class="field" style="width:190px"><div class="input input--ph" style="height:38px;font-size:13px">не заполнено</div></div>
+                  <span class="toggle"><i></i></span>
+                </div>
+              </div>
+              <div class="pad" style="padding:18px 22px">
+                <div class="note note--bad"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 8v5M12 16h.01"></path></svg><div><b>Ни одной зоны — позиция не продаётся.</b> Отметь хотя бы одну: без географии мы не можем никому разрешить оформление, и позиция уйдёт в черновики.</div></div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card__h"><h3 class="h3">Условия доставки в позиции</h3><span class="chip chip--sm">видит покупательница</span></div>
+              <div class="pad stackv" style="gap:14px">
+                <div class="field"><span class="lab">Как ты отправляешь</span><div class="input input--area">«Упаковка плотная, отправляю Почтой или СДЭК из Твери, обычно 350–600 ₽. Самовывоз из мастерской — бесплатно»</div></div>
+                <div class="grid2" style="gap:14px">
+                  <div class="field"><span class="lab">Ориентир по стоимости</span><div class="input">350–600 ₽ РФ · 1 200–2 500 ₽ СНГ</div></div>
+                  <div class="field"><span class="lab">Отправляю в течение</span><div class="input">2–3 дней после оплаты</div></div>
+                </div>
+                <div class="row" style="padding:0;border:0"><span class="sm t2">Самовывоз возможен · Тверь, мастерская</span><span class="toggle on"><i></i></span></div>
+              </div>
+            </div>
+          </div>
+          <div class="rail">
+            <div class="card pad stackv">
+              <span class="eyebrow">Предпросмотр у покупательницы</span>
+              <div class="card" style="box-shadow:none;background:rgba(255,255,255,.03);padding:16px;margin-top:2px">
+                <div style="display:flex;align-items:center;gap:12px"><span class="brandav brandav--gold">ГО</span><div><div class="sm" style="font-weight:700">Глина и огонь</div><div class="xs t3" style="margin-top:3px">Чаша «Утро» · 4 800 ₽</div></div></div>
+                <p class="xs t2" style="margin:12px 0 0;line-height:17px">«Упаковка плотная, отправляю Почтой или СДЭК из Твери, обычно 350–600 ₽. Самовывоз — бесплатно»</p>
+                <div class="geo" style="margin-top:11px"><span class="lb">Отправляет</span><span class="zn zn--on">РФ</span><span class="zn zn--on">СНГ</span><span class="zn zn--off">Зарубеж</span></div>
+                <div class="xs t3" style="margin-top:9px">Доставка оплачивается продавцу отдельно, после оплаты товара</div>
+              </div>
+            </div>
+            <div class="card pad stackv">
+              <span class="eyebrow">Что будет с заказом из Израиля</span>
+              <p class="sm t2" style="margin:0">Позиция останется в каталоге, но оформить её на зарубежный адрес не выйдет. Покупательница прочтёт: «Глина и огонь отправляет только по России и СНГ» — и сможет сменить адрес, убрать позицию или написать тебе.</p>
+              <div class="note" style="margin-top:2px"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg><div>Разово отправить всё равно можно — договоритесь в чате, и она оформит на адрес в РФ.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div></div></div>
+<script src="demo.js"></script>
+</body>
+</html>

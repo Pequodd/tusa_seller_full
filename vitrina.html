@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Витрина · Кабинет селлера · Made by THOUSUKA</title>
+<link rel="stylesheet" href="assets/colors_and_type.css">
+<style>
+@font-face{font-family:'Lato';src:url('assets/fonts/Lato-Light.ttf') format('truetype');font-weight:300;font-display:swap}
+@font-face{font-family:'Lato';src:url('assets/fonts/Lato-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
+@font-face{font-family:'Lato';src:url('assets/fonts/Lato-Italic.ttf') format('truetype');font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:'Lato';src:url('assets/fonts/Lato-Bold.ttf') format('truetype');font-weight:700;font-display:swap}
+:root{--bg:#0B0A0D;--glass:rgba(255,255,255,0.045);--glass-2:rgba(255,255,255,0.07);--glass-border:rgba(255,255,255,0.10);--glass-border-strong:rgba(255,255,255,0.18);--text-1:#F4F2F4;--text-2:#B7B3BC;--text-3:#837F8A;--crimson:#9D2235;--crimson-soft:#C04B5C;--crimson-tint:rgba(157,34,53,0.16);--cta:#941E1D;--cta-hover:#B0292A;--orange:#C75D45;--beige:#C9A88F;--gold:#E8D08A;--green:#3FB984;--font-ui:'Lato','Helvetica Neue',sans-serif;--r-card:24px;--r-btn:9999px;--shadow-card:0 12px 40px rgba(0,0,0,0.45);--ease:cubic-bezier(0.25,0.46,0.45,0.94);--t:200ms}
+*{box-sizing:border-box}
+body{margin:0;background:#08070a;font-family:var(--font-ui);color:var(--text-1);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+a{color:inherit;text-decoration:none}a:hover{color:var(--text-1)}
+button{font-family:inherit;cursor:pointer}
+:focus-visible{outline:2px solid var(--crimson-soft);outline-offset:2px;border-radius:6px}
+.desk{padding:48px;display:flex;flex-direction:column;align-items:center;gap:32px;min-width:min-content}
+.stack{width:100%;display:flex;flex-direction:column;gap:12px}
+.stack--d{width:1600px;max-width:none;margin:0 auto}.stack--d .frame{width:1600px;flex:none}
+.stack--f{width:1360px;max-width:none;margin:0 auto}.stack--f .frame{width:1360px;flex:none}
+.stack--m{width:390px;max-width:none;margin:0 auto}
+.framelabel{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:#4a464f}
+.frame{position:relative;background:var(--bg);border:1px solid rgba(255,255,255,.07);border-radius:8px;overflow:hidden}
+.frame::before{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(900px 600px at 78% -8%,rgba(157,34,53,0.20),transparent 60%),radial-gradient(700px 520px at 6% 4%,rgba(124,52,40,0.12),transparent 55%)}
+/* type */
+.display{font-weight:700;font-size:34px;line-height:42px;letter-spacing:.01em;margin:0;text-transform:uppercase}
+.h2{font-weight:700;font-size:20px;line-height:28px;letter-spacing:-.01em;margin:0}
+.body{font-size:14px;line-height:22px;color:var(--text-2)}
+.sm{font-size:13px;line-height:19px}
+.xs{font-size:12px;line-height:16px}
+.eyebrow{font-size:11px;line-height:1;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--text-3)}
+.t2{color:var(--text-2)}.t3{color:var(--text-3)}.gold{color:var(--gold)}
+.num{font-variant-numeric:tabular-nums;font-weight:700}
+/* orb */
+.orb{position:relative;display:grid;place-items:center;border-radius:50%;background:radial-gradient(120% 120% at 30% 22%,rgba(255,255,255,0.16),rgba(255,255,255,0.03) 42%,rgba(255,255,255,0.012) 70%),rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.10);box-shadow:inset 0 1px 1px rgba(255,255,255,0.22),inset 0 -8px 18px rgba(0,0,0,0.45),0 6px 18px rgba(0,0,0,0.40);backdrop-filter:blur(14px);color:#fff;flex:none}
+.orb::after{content:"";position:absolute;left:14%;right:24%;top:8%;height:36%;border-radius:50%;background:linear-gradient(180deg,rgba(255,255,255,0.28),rgba(255,255,255,0));filter:blur(2px);pointer-events:none}
+.orb svg{position:relative;z-index:1;stroke-width:1.5;fill:none;stroke:currentColor}
+.orb--lg{width:56px;height:56px}.orb--lg svg{width:24px;height:24px}
+/* shell */
+.app{position:relative;display:grid;grid-template-columns:240px 1fr;min-height:1180px}
+.side{width:240px;background:rgba(255,255,255,.03);border-right:1px solid var(--glass-border);backdrop-filter:blur(16px);padding:24px 16px;display:flex;flex-direction:column;gap:24px}
+.wordmark{padding:0 8px}
+.wordmark b{display:block;font-weight:700;font-size:20px;letter-spacing:.16em}
+.wordmark span{display:block;margin-top:3px;font-size:9px;font-weight:600;letter-spacing:.34em;text-transform:uppercase;color:var(--text-3)}
+.mode{display:grid;grid-template-columns:1fr 1fr;gap:4px;background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--r-btn);padding:4px}
+.mode button{border:0;border-radius:var(--r-btn);background:transparent;color:var(--text-3);font-size:13px;font-weight:600;height:34px;transition:color var(--t) var(--ease),background var(--t) var(--ease)}
+.mode button:hover{color:var(--text-2)}
+.mode button.on{background:var(--cta);color:#fff;box-shadow:0 0 20px rgba(157,34,53,.38)}
+.nav{display:flex;flex-direction:column;gap:3px}
+.nav a{display:flex;align-items:center;gap:10px;height:40px;padding:0 14px;border-radius:var(--r-btn);font-size:14px;font-weight:500;color:var(--text-2);transition:color var(--t) var(--ease),background var(--t) var(--ease)}
+.nav a:hover{background:var(--glass);color:var(--text-1)}
+.nav a.on{background:var(--glass-2);color:#fff;font-weight:600}
+.nav a svg{width:16px;height:16px;flex:none;opacity:.7;fill:none;stroke:currentColor;stroke-width:1.5}
+.nav a.on svg{opacity:1;color:var(--crimson-soft)}
+.nav .badge{margin-left:auto;min-width:20px;height:20px;padding:0 6px;display:grid;place-items:center;border-radius:var(--r-btn);background:var(--glass-2);border:1px solid var(--glass-border);font-size:10px;font-weight:700;color:var(--text-2);font-variant-numeric:tabular-nums}
+.sidefoot{margin-top:auto;display:flex;flex-direction:column;gap:12px}
+.levelmini{border:1px solid var(--glass-border);border-radius:18px;background:var(--glass);padding:14px}
+.levelmini .row{display:flex;justify-content:space-between;align-items:baseline}
+.bar{height:4px;border-radius:var(--r-btn);background:rgba(255,255,255,.09);overflow:hidden;margin-top:9px}
+.bar i{display:block;height:100%;border-radius:var(--r-btn);background:linear-gradient(90deg,#8B6914,#E8D08A 60%,#8B6914);box-shadow:0 0 14px rgba(232,208,138,.30)}
+.me{display:flex;align-items:center;gap:10px;padding:8px;border-radius:18px;transition:background var(--t) var(--ease)}
+.me:hover{background:var(--glass)}
+.av{width:36px;height:36px;border-radius:50%;flex:none;background:var(--glass-2);border:1px solid var(--glass-border-strong);box-shadow:0 0 0 4px rgba(255,255,255,.03);display:grid;place-items:center;font-weight:700;font-size:14px;color:var(--text-2)}
+/* content */
+.main{position:relative;width:100%;max-width:1400px;margin:0 auto;padding:32px 48px;display:flex;flex-direction:column;gap:20px}
+.card{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--r-card);backdrop-filter:blur(16px);box-shadow:var(--shadow-card)}
+.head{display:flex;align-items:center;gap:16px}
+.link{font-size:13px;font-weight:500;color:var(--text-3);transition:color var(--t)}
+.link:hover{color:var(--text-1)}
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 20px;border-radius:var(--r-btn);border:1px solid var(--glass-border);background:var(--glass);color:var(--text-1);font-size:13px;font-weight:600;transition:border-color var(--t) var(--ease),background var(--t) var(--ease),box-shadow var(--t) var(--ease)}
+.btn:hover{background:var(--glass-2);border-color:var(--glass-border-strong)}
+.btn svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.6}
+.btn--cta{background:var(--cta);border-color:var(--cta);color:#fff}
+.btn--cta:hover{background:var(--cta-hover);border-color:var(--cta-hover);box-shadow:0 0 24px rgba(157,34,53,.5)}
+.btn--gold{border-color:rgba(232,208,138,.38);color:var(--gold);background:rgba(232,208,138,.06)}
+.btn--gold:hover{background:rgba(232,208,138,.12);border-color:rgba(232,208,138,.6)}
+.btn--sm{height:34px;padding:0 16px;font-size:12px}
+.btn--ghost{background:transparent;border-color:transparent;color:var(--text-2)}
+.btn--ghost:hover{background:var(--glass);color:var(--text-1)}
+/* filter bar */
+.filters{padding:18px 22px;display:flex;flex-direction:column;gap:16px}
+.tabs{display:flex;gap:4px;background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--r-btn);padding:4px;align-self:flex-start}
+.tabs button{border:0;background:transparent;border-radius:var(--r-btn);height:34px;padding:0 16px;font-size:13px;font-weight:600;color:var(--text-3);display:inline-flex;align-items:center;gap:7px;transition:color var(--t),background var(--t)}
+.tabs button:hover{color:var(--text-2)}
+.tabs button.on{background:var(--glass-2);color:#fff}
+.tabs .c{font-size:11px;font-weight:700;color:var(--text-3);font-variant-numeric:tabular-nums}
+.tabs button.on .c{color:var(--crimson-soft)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.fchip{display:inline-flex;align-items:center;gap:7px;height:32px;padding:0 14px;border-radius:var(--r-btn);border:1px solid var(--glass-border);background:transparent;color:var(--text-2);font-size:12px;font-weight:600;transition:border-color var(--t),background var(--t),color var(--t)}
+.fchip:hover{background:var(--glass);color:var(--text-1)}
+.fchip .c{font-size:11px;font-weight:700;color:var(--text-3);font-variant-numeric:tabular-nums}
+.fchip.on{background:var(--glass-2);border-color:var(--glass-border-strong);color:#fff}
+.fchip.on .c{color:var(--text-2)}
+.fchip .x{opacity:.5;font-weight:400;display:none}
+.fchip.on .x{display:inline}
+.fchip--reset{color:var(--crimson-soft);border-style:dashed}
+.fchip--reset:hover{color:#F0C3C9;border-color:rgba(192,75,92,.5)}
+.vempty{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;padding:56px 24px;text-align:center}
+.vempty svg{width:34px;height:34px;fill:none;stroke:rgba(255,255,255,.22);stroke-width:1.4;stroke-linecap:round;margin-bottom:6px}
+.vempty b{font-size:15px;font-weight:700;color:var(--text-2)}
+.vempty p{margin:0 0 12px;font-size:12.5px;line-height:18px;font-weight:300;color:var(--text-3);max-width:340px;text-wrap:pretty}
+tr[hidden]{display:none}
+.vempty[hidden],.tfoot[hidden],.fchip[hidden]{display:none}
+.vgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;padding:22px}
+.vgrid[hidden]{display:none}
+.vcard{display:flex;flex-direction:column;border-radius:22px;border:1px solid var(--glass-border);background:rgba(255,255,255,.03);overflow:hidden;transition:transform .4s cubic-bezier(.25,.46,.45,.94),border-color .4s cubic-bezier(.25,.46,.45,.94),box-shadow .4s cubic-bezier(.25,.46,.45,.94)}
+.vcard{cursor:pointer}
+.vcard:hover{transform:translateY(-4px);border-color:var(--glass-border-strong);box-shadow:0 4px 32px rgba(0,0,0,.6)}
+.vcard .more{position:absolute;right:10px;top:10px;width:30px;height:30px;border-radius:50%;border:1px solid rgba(255,255,255,.16);background:rgba(11,10,13,.82);color:#EFEFEF;display:grid;place-items:center;opacity:0;transition:opacity var(--t) var(--ease),background var(--t) var(--ease)}
+.vcard:hover .more,.vcard .more.act{opacity:1}
+.vcard .more:hover{background:rgba(157,34,53,.5);border-color:rgba(192,75,92,.6)}
+.vcard .more svg{width:15px;height:15px;fill:currentColor;stroke:none}
+.vcard[hidden]{display:none}
+.vcard .ph{position:relative;aspect-ratio:4/3;background:#0F0D12}
+.vcard .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.vcard .ph .st{position:absolute;left:12px;top:12px;background:rgba(11,10,13,.82);border:1px solid rgba(255,255,255,.14);color:#EFEFEF;backdrop-filter:none}
+.vcard .ph .st--ok{color:#B9EBD3;border-color:rgba(63,185,132,.5)}
+.vcard .ph .st--mod{color:#F1E2B0;border-color:rgba(232,208,138,.45)}
+.vcard .ph .st--warn{color:#F5CDA8;border-color:rgba(232,168,106,.5)}
+.vcard .ph .st--bad{color:#F0C3C9;border-color:rgba(192,75,92,.55)}
+.vcard .ph .st--mute{color:#D6D3DA;border-color:rgba(255,255,255,.2)}
+.vcard .bd{padding:15px 16px 17px;display:flex;flex-direction:column;gap:9px;flex:1}
+.vcard .nm{font-size:14px;line-height:19px;font-weight:700;color:var(--text-1)}
+.vcard .mt{font-size:11.5px;color:var(--text-3);display:flex;gap:9px;flex-wrap:wrap}
+.vcard .ft{margin-top:auto;display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding-top:4px}
+.vcard .pr{font-size:16px;font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+.vcard .vw{font-size:11.5px;color:var(--text-3);font-variant-numeric:tabular-nums;white-space:nowrap}
+.rowmenu{position:absolute;z-index:70;min-width:216px;padding:7px;border-radius:18px;border:1px solid var(--glass-border-strong);background:#15121A;box-shadow:0 4px 38px rgba(0,0,0,.7);display:none;flex-direction:column;gap:1px}
+.rowmenu.on{display:flex}
+.rowmenu button{display:flex;align-items:center;width:100%;padding:9px 12px;border:0;border-radius:12px;background:none;text-align:left;font:inherit;font-size:13px;color:var(--text-2);cursor:pointer}
+.rowmenu button:hover{background:rgba(255,255,255,.06);color:#fff}
+.rowmenu button.dang{color:var(--crimson-soft)}
+.rowmenu button.dang:hover{background:rgba(157,34,53,.18);color:#F0C3C9}
+.rowmenu i{display:block;height:1px;margin:5px 8px;background:var(--glass-border)}
+.rowmenu .hd{padding:7px 12px 9px;font-size:11px;line-height:15px;color:var(--text-3)}
+.rowmenu .hd b{display:block;color:var(--text-1);font-size:12.5px;margin-bottom:3px}
+.more.act{color:#fff;background:rgba(255,255,255,.08)}
+.name button{background:none;border:0;padding:0;font:inherit;color:inherit;text-align:left;cursor:pointer}
+.name button:hover{color:#F0C3C9}
+.frow{display:flex;gap:12px;align-items:center;border-top:1px solid var(--glass-border);padding-top:16px}
+.field{flex:1;display:flex;align-items:center;gap:10px;height:44px;padding:0 18px;border-radius:var(--r-btn);background:var(--glass);border:1px solid var(--glass-border);color:var(--text-3);font-size:14px}
+.field svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.6;flex:none}
+.field:hover{border-color:var(--glass-border-strong)}
+.select{display:inline-flex;align-items:center;gap:10px;height:44px;padding:0 18px;border-radius:var(--r-btn);background:var(--glass);border:1px solid var(--glass-border);font-size:13px;font-weight:600;color:var(--text-1)}
+.select svg{width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.8;opacity:.6}
+.vtoggle{display:flex;gap:3px;background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--r-btn);padding:4px}
+.vtoggle button{width:36px;height:34px;border:0;border-radius:var(--r-btn);background:transparent;color:var(--text-3);display:grid;place-items:center}
+.vtoggle button svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.6}
+.vtoggle button.on{background:var(--glass-2);color:#fff}
+/* bulk bar */
+.bulk{padding:14px 22px;display:flex;align-items:center;gap:12px;border-color:rgba(192,75,92,.30);background:linear-gradient(90deg,rgba(157,34,53,.16),rgba(157,34,53,.05))}
+.bulk .cnt{font-size:15px;font-weight:700}
+.bulk .acts{display:flex;gap:8px;margin-left:auto;align-items:center}
+/* table */
+.tbl{width:100%;border-collapse:collapse}
+.tbl th{text-align:left;padding:0 16px;height:40px;background:rgba(255,255,255,.03);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3);border-bottom:1px solid var(--glass-border);white-space:nowrap}
+.tbl th:first-child{padding-left:22px}.tbl th:last-child{padding-right:22px}
+.tbl td{padding:0 16px;height:56px;border-bottom:1px solid var(--glass-border);font-size:14px;vertical-align:middle}
+.tbl td:first-child{padding-left:22px}.tbl td:last-child{padding-right:22px}
+.tbl tr:last-child td{border-bottom:0}
+.tbl tbody tr{transition:background var(--t) var(--ease)}
+.tbl tbody tr:hover{background:rgba(255,255,255,.055)}
+.tbl tbody tr.sel{background:rgba(157,34,53,.10)}
+.tbl .r{text-align:right;font-variant-numeric:tabular-nums;font-weight:700}
+.cb{width:18px;height:18px;border-radius:5px;border:1px solid var(--glass-border-strong);background:var(--glass);display:grid;place-items:center;flex:none}
+.cb svg{width:11px;height:11px;fill:none;stroke:#fff;stroke-width:2.4;opacity:0}
+.cb.on{background:var(--cta);border-color:var(--cta)}
+.cb.on svg{opacity:1}
+.thumb{width:48px;height:48px;border-radius:14px;background:var(--glass-2);border:1px solid var(--glass-border);display:grid;place-items:center;font-weight:700;font-size:16px;color:var(--text-3);flex:none}
+.name{font-weight:600;font-size:14px;line-height:19px}
+.tbadge{display:inline-block;margin-top:4px;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3)}
+.ibadge{display:inline-flex;align-items:center;height:20px;padding:0 9px;margin-left:8px;border-radius:var(--r-btn);border:1px solid var(--glass-border);background:var(--glass);font-size:10px;font-weight:700;letter-spacing:.06em;color:var(--text-2);vertical-align:middle}
+.ibadge--warn{border-color:rgba(199,93,69,.34);background:rgba(199,93,69,.12);color:#DFA089}
+.ibadge--gold{border-color:rgba(232,208,138,.30);background:rgba(232,208,138,.08);color:var(--beige)}
+.st{display:inline-flex;align-items:center;height:26px;padding:0 12px;border-radius:var(--r-btn);font-size:11px;font-weight:700;letter-spacing:.06em;white-space:nowrap;border:1px solid transparent}
+.st--ok{color:#79C5A2;background:rgba(63,185,132,.12);border-color:rgba(63,185,132,.22)}
+.st--mod{color:var(--beige);background:rgba(201,168,143,.12);border-color:rgba(201,168,143,.24)}
+.st--warn{color:#DFA089;background:rgba(199,93,69,.14);border-color:rgba(199,93,69,.28)}
+.st--bad{color:#DFA3AC;background:var(--crimson-tint);border-color:rgba(192,75,92,.30)}
+.st--mute{color:var(--text-3);background:rgba(255,255,255,.05);border-color:var(--glass-border)}
+.more{width:32px;height:32px;border-radius:50%;border:1px solid transparent;background:transparent;color:var(--text-3);display:grid;place-items:center;transition:background var(--t),color var(--t)}
+.more:hover{background:var(--glass-2);color:var(--text-1)}
+.more svg{width:16px;height:16px;fill:currentColor}
+.tfoot{display:flex;align-items:center;justify-content:space-between;padding:16px 22px;border-top:1px solid var(--glass-border)}
+/* empty + limit */
+.empty{padding:64px 40px;display:flex;flex-direction:column;align-items:center;text-align:center}
+.empty svg.ill{width:180px;height:120px;fill:none;stroke:var(--text-1);stroke-width:1;opacity:.16}
+.startcards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;width:100%;max-width:900px;margin-top:36px}
+.start{padding:22px;border-radius:20px;border:1px solid var(--glass-border);background:var(--glass);text-align:left;display:flex;flex-direction:column;gap:10px;transition:transform var(--t) var(--ease),border-color var(--t) var(--ease)}
+.start:hover{transform:translateY(-4px);border-color:var(--glass-border-strong)}
+.limit{display:flex;align-items:center;gap:18px;padding:20px 24px;border-color:rgba(232,208,138,.24);background:linear-gradient(90deg,rgba(232,208,138,.09),rgba(232,208,138,.02))}
+/* mobile */
+.m{width:390px;height:844px;overflow-y:auto;scrollbar-width:none}
+.m::-webkit-scrollbar{display:none}
+.mtop{position:sticky;top:0;z-index:5;background:rgba(11,10,13,.78);backdrop-filter:blur(18px);border-bottom:1px solid var(--glass-border);padding:14px 16px;display:flex;flex-direction:column;gap:12px}
+.mtop .r1{display:flex;align-items:center;gap:12px}
+.mtabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;margin:0 -16px;padding:0 16px}
+.mtabs::-webkit-scrollbar{display:none}
+.mtabs button{flex:none;border:1px solid var(--glass-border);background:transparent;color:var(--text-2);border-radius:var(--r-btn);height:32px;padding:0 14px;font-size:12px;font-weight:600;white-space:nowrap}
+.mtabs button.on{background:var(--glass-2);border-color:var(--glass-border-strong);color:#fff}
+.mbody{position:relative;padding:16px;display:flex;flex-direction:column;gap:12px}
+.mcard{display:flex;gap:12px;padding:14px;border-radius:20px;border:1px solid var(--glass-border);background:var(--glass);backdrop-filter:blur(16px)}
+.mcard .thumb{width:64px;height:64px;border-radius:16px;font-size:18px}
+.mrow{display:flex;align-items:center;gap:8px;margin-top:8px;flex-wrap:wrap}
+.sheet{position:absolute;left:0;right:0;bottom:0;background:rgba(16,14,19,.96);backdrop-filter:blur(24px);border-top:1px solid var(--glass-border-strong);border-radius:28px 28px 0 0;padding:10px 16px 24px;box-shadow:0 -20px 60px rgba(0,0,0,.6)}
+.grabber{width:40px;height:4px;border-radius:2px;background:rgba(255,255,255,.18);margin:0 auto 16px}
+.scrim{position:absolute;inset:0;background:rgba(0,0,0,.55);backdrop-filter:blur(2px)}
+.mbulk{position:sticky;bottom:0;z-index:5;display:flex;align-items:center;gap:10px;padding:14px 16px;background:rgba(29,12,16,.92);backdrop-filter:blur(18px);border-top:1px solid rgba(192,75,92,.30)}
+.tabbar{position:sticky;bottom:0;z-index:5;display:grid;grid-template-columns:repeat(5,1fr);background:rgba(11,10,13,.80);backdrop-filter:blur(18px);border-top:1px solid var(--glass-border);padding:9px 4px 12px}
+.tab{display:flex;flex-direction:column;align-items:center;gap:5px;font-size:10px;font-weight:600;color:var(--text-3);padding:2px 0}
+.tab svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.5}
+.tab.on{color:#fff}.tab.on svg{color:var(--crimson-soft)}
+</style>
+<link rel="stylesheet" href="demo.css">
+<style>.av--img{overflow:hidden;padding:0;background:#0F0D12}.av--img img{width:100%;height:100%;object-fit:cover;display:block;border-radius:50%}</style>
+<style>.tbl td.r,.tbl th.r,.tbl .num,.tbl .st,.tbl .ibadge,.tbl .tbadge{white-space:nowrap}.tbl .name{text-wrap:pretty}.tbl th:nth-child(3),.tbl td:nth-child(3){width:108px}.tbl th:nth-child(5),.tbl td:nth-child(5){width:96px}.tbl th:nth-child(6),.tbl td:nth-child(6){width:104px}.tbl th:nth-child(7),.tbl td:nth-child(7){width:84px}.tbl th:nth-child(8),.tbl td:nth-child(8){width:72px}.tbl th:nth-child(9),.tbl td:nth-child(9){width:150px}</style>
+<style>.thumb--img{overflow:hidden;padding:0;background:#0F0D12;position:relative}.thumb--img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}</style>
+<style>.dm-logo{height:20px;width:auto;display:block}.dm-sub{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:#837F8A;white-space:nowrap}.side-logo{height:22px;width:auto;display:block}.gnav-logo{height:20px;width:auto;display:block;flex:none}</style>
+<style>.prof{display:flex;gap:11px;align-items:center;padding:2px 8px 18px;border-bottom:1px solid var(--glass-border);text-decoration:none;color:inherit}.prof:hover .sm{color:var(--crimson-soft)}.orb--sm{width:32px;height:32px}.orb--sm svg{width:15px;height:15px}.gnav{display:flex;align-items:center;gap:32px;height:58px;padding:0 40px;border-bottom:1px solid var(--glass-border);background:rgba(255,255,255,.02);backdrop-filter:blur(14px)}.gnav-logo{height:20px;width:auto;display:block}.gnav .lnk{display:flex;gap:28px;margin-left:20px}.gnav .lnk a{font-size:14px;color:var(--text-2)}.gnav .lnk a:hover{color:#fff}.gnav .rt{margin-left:auto;display:flex;align-items:center;gap:10px}.crumbs{display:flex;align-items:center;gap:9px;padding:13px 40px;border-bottom:1px solid var(--glass-border);font-size:12px;color:var(--text-3)}.crumbs a{color:var(--text-3)}.crumbs a:hover{color:var(--crimson-soft)}.crumbs i{font-style:normal;color:#4a464f}.crumbs b{color:var(--text-1);font-weight:600}.av--sm{width:30px;height:30px;font-size:11px;box-shadow:none}</style>
+</head>
+<body class="dm">
+<div class="dm-bar">
+  <a class="dm-home" href="index.html"><img src="logo.svg" alt="THOUSUKA" class="dm-logo" /><span class="dm-sub">Кабинет селлера · демо</span></a>
+  <div class="dm-now"><b>Витрина</b><span>позиции, фильтры, статусы</span></div>
+  <div class="dm-nav">
+    <a class="dm-btn" href="svodka.html" title="Предыдущий экран">←</a>
+    <select class="dm-sel" onchange="location.href=this.value"><option value="svodka.html">Сводка</option><option value="vitrina.html" selected>Витрина</option><option value="novaya-poziciya.html">Новая позиция · доставка</option><option value="zakazy.html">Заказы</option><option value="zakaz-1043.html">Заказ №1043</option><option value="raspisanie.html">Расписание</option><option value="finansy.html">Финансы</option><option value="analitika.html">Аналитика</option><option value="otzyvy.html">Отзывы</option><option value="prodvizhenie.html">Продвижение</option><option value="soobscheniya.html">Сообщения</option><option value="profil.html">Профиль бренда</option><option value="nastroyki.html">Настройки</option></select>
+    <a class="dm-btn" href="novaya-poziciya.html" title="Следующий экран">→</a>
+  </div>
+</div>
+<div class="dm-stage"><div class="frame" style="width:1600px"><div class="app">
+
+  <aside class="side">
+    <a href="profil.html" class="prof"><span class="av av--img"><img src="img/avatar.png" alt="" /></span><span><span class="sm" style="font-weight:700;display:block">Ника Раевская</span><span class="xs t3">Керамика · уровень «Своя»</span></span></a>
+    <nav class="nav"><a href="svodka.html"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1"></rect><rect x="14" y="3" width="7" height="5" rx="1"></rect><rect x="14" y="12" width="7" height="9" rx="1"></rect><rect x="3" y="16" width="7" height="5" rx="1"></rect></svg>Сводка</a><a href="vitrina.html" class="on"><svg viewBox="0 0 24 24"><path d="M3 9h18M4 9l1-4h14l1 4M5 9v11h14V9"></path></svg>Витрина<span class="badge">12</span></a><a href="zakazy.html"><svg viewBox="0 0 24 24"><path d="M4 7h16v13H4zM9 7V4h6v3"></path></svg>Заказы<span class="badge">3</span></a><a href="raspisanie.html"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg>Расписание<span class="badge">5</span></a><a href="finansy.html"><svg viewBox="0 0 24 24"><path d="M3 7h18v11H3zM3 11h18"></path></svg>Финансы</a><a href="analitika.html"><svg viewBox="0 0 24 24"><path d="M4 20V9M10 20V4M16 20v-7M22 20H2"></path></svg>Аналитика</a><a href="otzyvy.html"><svg viewBox="0 0 24 24"><path d="M20 15a2 2 0 0 1-2 2H8l-4 4V6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2z"></path></svg>Отзывы<span class="badge">3</span></a><a href="prodvizhenie.html"><svg viewBox="0 0 24 24"><path d="M4 11l16-6-6 16-2-7z"></path></svg>Продвижение</a><a href="soobscheniya.html"><svg viewBox="0 0 24 24"><path d="M3 6h18v12H3z"></path><path d="M3 7l9 6 9-6"></path></svg>Сообщения<span class="badge">2</span></a><a href="profil.html"><svg viewBox="0 0 24 24"><path d="M4 20a8 8 0 0 1 16 0"></path><circle cx="12" cy="8" r="4"></circle></svg>Профиль бренда</a><a href="nastroyki.html"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"></circle><path d="M12 3v3M12 18v3M3 12h3M18 12h3M6 6l2 2M16 16l2 2M18 6l-2 2M8 16l-2 2"></path></svg>Настройки</a></nav>
+    <div class="sidefoot">
+      <div class="levelmini">
+        <div class="row"><span class="eyebrow" style="color:var(--beige)">Уровень</span><span class="xs num t2">62%</span></div>
+        <div class="sm" style="margin-top:7px;font-weight:700">Своя</div>
+        <div class="bar"><i style="width:62%"></i></div>
+      </div>
+    </div>
+  </aside>
+  <div>
+    <div class="gnav">
+      <img src="logo.svg" alt="THOUSUKA" class="gnav-logo" />
+      <div class="lnk"><a href="#">Маркетплейс</a><a href="#">Клуб</a><a href="#">События</a><a href="#">Блог</a></div>
+    </div>
+    <div class="crumbs"><a href="index.html">Главная</a><i>/</i><a href="svodka.html">Мастерская</a><i>/</i><b>Витрина</b></div>
+  <main class="main">
+    <div class="head">
+      <h1 class="display">Витрина</h1>
+      <span class="body num" style="font-weight:400" data-head>12 из 30 позиций</span>
+      <a class="btn btn--cta" href="novaya-poziciya.html" style="margin-left:auto"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"></path></svg>Добавить позицию</a>
+    </div>
+
+    <section class="card filters">
+      <div class="tabs" data-tabs>
+        <button class="on" data-type="all">Все<span class="c">12</span></button>
+        <button data-type="tovar">Товары<span class="c">7</span></button>
+        <button data-type="usluga">Услуги<span class="c">3</span></button>
+        <button data-type="kurs">Курсы<span class="c">1</span></button>
+        <button data-type="sobytie">События<span class="c">1</span></button>
+      </div>
+      <div class="chips" data-chips>
+        <button class="fchip" data-st="pub">Опубликовано<span class="c">6</span><span class="x">×</span></button>
+        <button class="fchip" data-st="mod">На модерации<span class="c">1</span><span class="x">×</span></button>
+        <button class="fchip" data-st="fix">Требует доработки<span class="c">1</span><span class="x">×</span></button>
+        <button class="fchip" data-st="draft">Черновики<span class="c">1</span><span class="x">×</span></button>
+        <button class="fchip" data-st="hidden">Скрыто<span class="c">1</span><span class="x">×</span></button>
+        <button class="fchip" data-st="oos">Нет в наличии<span class="c">1</span><span class="x">×</span></button>
+        <button class="fchip" data-st="arch">Архив<span class="c">1</span><span class="x">×</span></button>
+        <button class="fchip fchip--reset" data-reset hidden>Сбросить фильтры</button>
+      </div>
+      <div class="frow">
+        <div class="field"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>Поиск по названию или артикулу</div>
+        <button class="select">Сначала новые<svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></button>
+        <div class="vtoggle" data-vt>
+          <button class="on" type="button" data-v="table" title="Таблица"><svg viewBox="0 0 24 24"><path d="M3 6h18M3 12h18M3 18h18"></path></svg></button>
+          <button type="button" data-v="grid" title="Плитка"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="8" height="8" rx="1"></rect><rect x="13" y="3" width="8" height="8" rx="1"></rect><rect x="3" y="13" width="8" height="8" rx="1"></rect><rect x="13" y="13" width="8" height="8" rx="1"></rect></svg></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" style="overflow:hidden">
+      <table class="tbl">
+        <thead><tr>
+          <th style="width:44px"><span class="cb"><svg viewBox="0 0 24 24"><path d="M4 12l6 6L20 6"></path></svg></span></th>
+          <th style="width:34%">Название</th><th>Артикул</th><th>Категория</th><th class="r">Цена</th><th>Остаток</th><th class="r">Просмотры</th><th class="r">Заказы</th><th>Статус</th><th style="width:52px"></th>
+        </tr></thead>
+        <tbody data-rows>
+<tr data-type="tovar" data-st="pub">
+<td><span class="cb"><svg viewBox="0 0 24 24"><path d="M4 12l6 6L20 6"></path></svg></span></td>
+<td><div style="display:flex;align-items:center;gap:14px"><div class="thumb thumb--img"><img src="img/braslet.avif" alt="" /></div><div><div class="name">Браслет «Луна», серебро<span class="ibadge">Ручная работа</span></div><span class="tbadge">Товар</span></div></div></td>
+<td class="t3 num" style="font-weight:400">TSK-0412</td><td class="t2">Украшения</td><td class="r">4 200 ₽</td>
+<td><span class="ibadge ibadge--warn">Осталось 2 шт.</span></td>
+<td class="r">1 284</td><td class="r">9</td><td><span class="st st--ok">Опубликовано</span></td>
+<td><button class="more"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.7"></circle><circle cx="12" cy="12" r="1.7"></circle><circle cx="19" cy="12" r="1.7"></circle></svg></button></td>
+</tr>
+<tr data-type="usluga" data-st="pub">
+<td><span class="cb"><svg viewBox="0 0 24 24"><path d="M4 12l6 6L20 6"></path></svg></span></td>
+<td><div style="display:flex;align-items:center;gap:14px"><div class="thumb thumb--img"><img src="img/psiholog.avif" alt="" /></div><div><div class="name">Консультация психолога, 60 мин</div><span class="tbadge">Услуга</span></div></div></td>
+<td class="t3 num" style="font-weight:400">TSK-1180</td><td class="t2">Психология</td><td class="r">6 000 ₽</td>
+<td><span class="t2 num" style="font-weight:400">8 слотов</span></td>
+<td class="r">964</td><td class="r">6</td><td><span class="st st--ok">Опубликовано</span></td>
+<td><button class="more"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.7"></circle><circle cx="12" cy="12" r="1.7"></circle><circle cx="19" cy="12" r="1.7"></circle></svg></button></td>
+</tr>
+<tr data-type="kurs" data-st="mod">
+<td><span class="cb"><svg viewBox="0 0 24 24"><path d="M4 12l6 6L20 6"></path></svg></span></td>
+<td><div style="display:flex;align-items:center;gap:14px"><div class="thumb thumb--img"><img src="img/kurs.avif" alt="" /></div><div><div class="name">Курс «Голос внутри»</div><span class="tbadge">Курс</span></div></div></td>
+<td class="t3 num" style="font-weight:400">TSK-2201</td><td class="t2">Обучение</td><td class="r">24 900 ₽</td>
+<td><span class="t2 num" style="font-weight:400">поток 12 окт</span></td>
+<td class="r">877</td><td class="r">11</td><td><span class="st st--mod">На модерации</span></td>
+<td><button class="more"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.7"></circle><circle cx="12" cy="12" r="1.7"></circle><circle cx="19" cy="12" r="1.7"></circle></svg></button></td>
+</tr>
+<tr data-type="sobytie" data-st="pub">
+<td><span class="cb"><svg viewBox="0 0 24 24"><path d="M4 12l6 6L20 6"></path></svg></span></td>
+<td><div style="display:flex;align-items:center;gap:14px"><div class="thumb thumb--img"><img src="img/retrit.avif" alt="" /></div><div><div class="name">Ретрит в Суздале, 3 дня<span class="ibadge ibadge--gold">Лимитированная</span></div><span class="tbadge">Событие</span></div></div></td>
+<td class="t3 num" style="font-weight:400">TSK-3007</td><td class="t2">Ретриты</td><td class="r">89 000 ₽</td>
+<td><span class="t2 num" style="font-weight:400">12 из 20</span></td>
+<td class="r">1 042</td><td class="r">12</td><td><span class="st st--ok">Опубликовано</span></td>
+<td><button class="more"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.7"></circle><circle cx="12" cy="12" r="1.7"></circle><circle cx="19" cy="12" r="1.7"></circle></svg></button></td>
+</tr>
+<tr data-type="tovar" data-st="oos">
+<td><span class="cb"><svg viewBox="0 0 24 24"><path d="M4 12l6 6L20 6"></path></svg></span></td>
+<td><div style="display:flex;align-items:center;gap:14px"><div class="thumb thumb--img"><img src="img/sergi.avif" alt="" /></div><div><div class="name">Серьги «Тень»</div><span class="tbadge">Товар</span></div></div></td>
+<td class="t3 num" style="font-weight:400">TSK-0388</td><td class="t2">Украшения</td><td class="r">7 800 ₽</td>
+<td><span class="t3">0</span></td>
+<td class="r">612</td><td class="r">0</td><td><span class="st st--bad">Нет в наличии</span></td>
+<td><button class="more"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.7"></circle><circle cx="12" cy="12" r="1.7"></circle><circle cx="19" cy="12" r="1.7"></circle></svg></button></td>
+</tr>
+<tr data-type="tovar" data-st="fix">
+<td><span class="cb"><svg viewBox="0 0 24 24"><path d="M4 12l6 6L20 6"></path></svg></span></td>
+<td><div style="display:flex;align-items:center;gap:14px"><div class="thumb thumb--img"><img src="img/kolco.avif" alt="" /></div><div><div class="name">Кольцо «Первая»</div><span class="tbadge">Товар</span></div></div></td>
+<td class="t3 num" style="font-weight:400">TSK-0455</td><td class="t2">Украшения</td><td class="r">5 400 ₽</td>
+<td class="r">6</td>
+<td class="r">348</td><td class="r">2</td><td><span class="st st--warn">Требует доработки</span></td>
+<td><button class="more"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.7"></circle><circle cx="12" cy="12" r="1.7"></circle><circle cx="19" cy="12" r="1.7"></circle></svg></button></td>
+</tr>
+<tr data-type="tovar" data-st="pub">
+<td><span class="cb"><svg viewBox="0 0 24 24"><path d="M4 12l6 6L20 6"></path></svg></span></td>
+<td><div style="display:flex;align-items:center;gap:14px"><div class="thumb thumb--img"><img src="img/chasha.avif" alt="" /></div><div><div class="name">Чаша «Тишина», песочная<span class="ibadge">На модерации</span></div><span class="tbadge">Товар</span></div></div></td>
+<td class="t3 num" style="font-weight:400">TSK-0107</td><td class="t2">Керамика</td><td class="r">4 800 ₽</td>
+<td class="r">11</td>
+<td class="r">1 284</td><td class="r">9</td><td><span class="st st--ok">Опубликовано</span></td>
+<td><button class="more"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.7"></circle><circle cx="12" cy="12" r="1.7"></circle><circle cx="19" cy="12" r="1.7"></circle></svg></button></td>
+</tr>
+<tr data-type="tovar" data-st="pub">
+<td><span class="cb"><svg viewBox="0 0 24 24"><path d="M4 12l6 6L20 6"></path></svg></span></td>
+<td><div style="display:flex;align-items:center;gap:14px"><div class="thumb thumb--img"><img src="img/vaza.avif" alt="" /></div><div><div class="name">Ваза «Дым», графит</div><span class="tbadge">Товар</span></div></div></td>
+<td class="t3 num" style="font-weight:400">TSK-0119</td><td class="t2">Керамика</td><td class="r">9 200 ₽</td>
+<td class="r">3</td>
+<td class="r">548</td><td class="r">3</td><td><span class="st st--ok">Опубликовано</span></td>
+<td><button class="more"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.7"></circle><circle cx="12" cy="12" r="1.7"></circle><circle cx="19" cy="12" r="1.7"></circle></svg></button></td>
+</tr>
+<tr data-type="usluga" data-st="draft">
+<td><span class="cb"><svg viewBox="0 0 24 24"><path d="M4 12l6 6L20 6"></path></svg></span></td>
+<td><div style="display:flex;align-items:center;gap:14px"><div class="thumb thumb--img"><img src="img/garderob.avif" alt="" /></div><div><div class="name">Разбор гардероба, 90 мин</div><span class="tbadge">Услуга</span></div></div></td>
+<td class="t3 num" style="font-weight:400">TSK-1204</td><td class="t2">Стиль</td><td class="r">9 500 ₽</td>
+<td><span class="t2 num" style="font-weight:400">4 слота</span></td>
+<td class="r t3">—</td><td class="r t3">—</td><td><span class="st st--mute">Черновик</span></td>
+<td><button class="more"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.7"></circle><circle cx="12" cy="12" r="1.7"></circle><circle cx="19" cy="12" r="1.7"></circle></svg></button></td>
+</tr>
+<tr data-type="usluga" data-st="hidden">
+<td><span class="cb"><svg viewBox="0 0 24 24"><path d="M4 12l6 6L20 6"></path></svg></span></td>
+<td><div style="display:flex;align-items:center;gap:14px"><div class="thumb thumb--img"><img src="img/goncharka.avif" alt="" /></div><div><div class="name">Мастер-класс «Гончарный круг»</div><span class="tbadge">Услуга</span></div></div></td>
+<td class="t3 num" style="font-weight:400">TSK-1230</td><td class="t2">Керамика</td><td class="r">7 500 ₽</td>
+<td><span class="t2 num" style="font-weight:400">6 мест</span></td>
+<td class="r">388</td><td class="r">4</td><td><span class="st st--mute">Скрыто</span></td>
+<td><button class="more"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.7"></circle><circle cx="12" cy="12" r="1.7"></circle><circle cx="19" cy="12" r="1.7"></circle></svg></button></td>
+</tr>
+<tr data-type="tovar" data-st="pub">
+<td><span class="cb"><svg viewBox="0 0 24 24"><path d="M4 12l6 6L20 6"></path></svg></span></td>
+<td><div style="display:flex;align-items:center;gap:14px"><div class="thumb thumb--img"><img src="img/svecha.avif" alt="" /></div><div><div class="name">Свеча «Тихий вечер»</div><span class="tbadge">Товар</span></div></div></td>
+<td class="t3 num" style="font-weight:400">TSK-0526</td><td class="t2">Свечи</td><td class="r">3 200 ₽</td>
+<td class="r">24</td>
+<td class="r">706</td><td class="r">14</td><td><span class="st st--ok">Опубликовано</span></td>
+<td><button class="more"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.7"></circle><circle cx="12" cy="12" r="1.7"></circle><circle cx="19" cy="12" r="1.7"></circle></svg></button></td>
+</tr>
+<tr data-type="tovar" data-st="arch">
+<td><span class="cb"><svg viewBox="0 0 24 24"><path d="M4 12l6 6L20 6"></path></svg></span></td>
+<td><div style="display:flex;align-items:center;gap:14px"><div class="thumb thumb--img"><img src="img/goncharka.avif" alt="" /></div><div><div class="name">Панно «Соль», шамот</div><span class="tbadge">Товар</span></div></div></td>
+<td class="t3 num" style="font-weight:400">TSK-0133</td><td class="t2">Керамика</td><td class="r">14 500 ₽</td>
+<td><span class="t3">—</span></td>
+<td class="r">214</td><td class="r">1</td><td><span class="st st--mute">Архив</span></td>
+<td><button class="more"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.7"></circle><circle cx="12" cy="12" r="1.7"></circle><circle cx="19" cy="12" r="1.7"></circle></svg></button></td>
+</tr>
+        </tbody>
+      </table>
+      <div class="vgrid" id="vgrid" hidden></div>
+      <div class="vempty" data-empty hidden><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4.3-4.3"/></svg><b>Ничего не найдено</b><p>Под выбранные фильтры не подходит ни одна позиция. Сбрось статус или выбери другой тип.</p><button class="btn btn--sm" data-reset2>Сбросить фильтры</button></div>
+      <div class="tfoot"><span class="sm t3" data-count></span><button class="btn btn--sm">Показать ещё</button></div>
+    </section>
+  </main>
+  </div>
+</div></div></div>
+<div class="rowmenu" id="rowmenu"></div>
+<script src="demo.js"></script>
+<script>
+(function(){
+var tabs=document.querySelector('[data-tabs]'),chips=document.querySelector('[data-chips]'),tb=document.querySelector('[data-rows]');
+if(!tabs||!tb)return;
+var type='all',sts=[];
+function apply(){
+  var n=0,cs={},ct={};
+  Array.prototype.forEach.call(tb.rows,function(r){
+    cs[r.dataset.st]=(cs[r.dataset.st]||0)+1;
+    ct[r.dataset.type]=(ct[r.dataset.type]||0)+1;
+  });
+  Array.prototype.forEach.call(chips.querySelectorAll('.fchip[data-st]'),function(c){
+    var e=c.querySelector('.c');if(e)e.textContent=cs[c.dataset.st]||0;
+  });
+  Array.prototype.forEach.call(tabs.querySelectorAll('[data-type]'),function(b){
+    var e=b.querySelector('.c');if(!e)return;
+    e.textContent=b.dataset.type==='all'?tb.rows.length:(ct[b.dataset.type]||0);
+  });
+  Array.prototype.forEach.call(tb.rows,function(r){
+    var ok=(type==='all'||r.dataset.type===type)&&(!sts.length||sts.indexOf(r.dataset.st)>-1);
+    r.hidden=!ok; if(ok)n++;
+  });
+  var g=document.getElementById('vgrid');
+  if(g)Array.prototype.forEach.call(g.children,function(c,i){var r=tb.rows[i];c.hidden=!r||r.hidden;});
+  document.querySelector('[data-count]').textContent='Показано '+n+' из '+tb.rows.length;
+  document.querySelector('[data-head]').textContent=(n<tb.rows.length?'Найдено '+n+' · ':'')+tb.rows.length+' из 30 позиций';
+  document.querySelector('[data-empty]').hidden=n>0;
+  document.querySelector('.tfoot').hidden=n===0;
+  document.querySelector('[data-reset]').hidden=(type==='all'&&!sts.length);
+}
+tabs.addEventListener('click',function(e){var b=e.target.closest('[data-type]');if(!b)return;
+  type=b.dataset.type;Array.prototype.forEach.call(tabs.children,function(x){x.classList.toggle('on',x===b)});apply();});
+chips.addEventListener('click',function(e){
+  if(e.target.closest('[data-reset]')){type='all';sts=[];Array.prototype.forEach.call(tabs.children,function(x,i){x.classList.toggle('on',i===0)});chips.querySelectorAll('.fchip').forEach(function(c){c.classList.remove('on')});apply();return;}
+  var b=e.target.closest('[data-st]');if(!b)return;
+  var k=b.dataset.st,i=sts.indexOf(k);
+  if(i>-1){sts.splice(i,1);b.classList.remove('on');}else{sts.push(k);b.classList.add('on');}
+  apply();});
+document.addEventListener('click',function(e){if(e.target.closest('[data-reset2]'))chips.querySelector('[data-reset]').click();});
+var grid=document.getElementById('vgrid'),vt=document.querySelector('[data-vt]'),tblEl=document.querySelector('.tbl');
+Array.prototype.forEach.call(tb.rows,function(r){
+  var img=r.querySelector('.thumb--img img'),nm=r.querySelector('.name'),tbg=r.querySelector('.tbadge'),st=r.querySelector('.st');
+  var c=document.createElement('article');c.className='vcard';
+  c.innerHTML='<div class="ph">'+(img?'<img src="'+img.getAttribute('src')+'" alt="" />':'')+(st?'<span class="st '+(st.className.split(' ')[1]||'')+'">'+st.textContent+'</span>':'')+'<button class="more" type="button" aria-label="Действия"><svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.7"></circle><circle cx="12" cy="12" r="1.7"></circle><circle cx="19" cy="12" r="1.7"></circle></svg></button></div>'+
+    '<div class="bd"><div class="nm">'+(nm?nm.childNodes[0].textContent.trim():'')+'</div>'+
+    '<div class="mt"><span>'+(tbg?tbg.textContent:'')+'</span><span>'+r.cells[3].textContent+'</span><span>'+r.cells[2].textContent+'</span></div>'+
+    '<div class="ft"><span class="pr">'+r.cells[4].textContent+'</span><span class="vw">'+r.cells[6].textContent+' просм. · '+r.cells[7].textContent+' зак.</span></div></div>';
+  grid.appendChild(c);
+});
+vt.addEventListener('click',function(e){var b=e.target.closest('[data-v]');if(!b)return;
+  var v=b.dataset.v;
+  Array.prototype.forEach.call(vt.children,function(x){x.classList.toggle('on',x===b)});
+  tblEl.hidden=v!=='table';grid.hidden=v!=='grid';apply();});
+var rm=document.getElementById('rowmenu'),rmRow=null;
+var host=document.querySelector('.dm-stage .frame')||document.body;
+if(getComputedStyle(host).position==='static')host.style.position='relative';
+host.appendChild(rm);
+function closeMenu(){rm.classList.remove('on');Array.prototype.forEach.call(document.querySelectorAll('.more.act'),function(m){m.classList.remove('act')});rmRow=null;}
+function openMenu(btn,row){
+  var r=row||btn.closest('tr'),st=r.dataset.st,nm=r.querySelector('.name').childNodes[0].textContent.trim(),art=r.cells[2].textContent;
+  var items=[['Дублировать','','dup']];
+  if(st==='pub')items.push(['Скрыть с витрины','hidden']);
+  if(st==='hidden'||st==='draft')items.push(['Отправить на модерацию','mod']);
+  if(st==='fix')items.push(['Посмотреть замечания','','notes']);
+  if(st==='oos')items.push(['Пополнить остаток','','stock']);
+  if(st==='arch')items.push(['Вернуть из архива','draft']);
+  rm.innerHTML='<div class="hd"><b>'+nm+'</b>'+art+'</div>'+items.map(function(it){return '<button type="button" data-to="'+it[1]+'"'+(it[2]?' data-act="'+it[2]+'"':'')+'>'+it[0]+'</button>'}).join('')+'<i></i><button type="button" class="dang" data-to="arch">В архив</button>';
+  rm.classList.add('on');
+  var b=btn.getBoundingClientRect(),hb=host.getBoundingClientRect(),k=hb.width/host.offsetWidth||1,h=rm.offsetHeight;
+  var left=(b.right-hb.left)/k-rm.offsetWidth,top=(b.bottom-hb.top)/k+6;
+  if(top+h>host.offsetHeight-8)top=(b.top-hb.top)/k-h-6;
+  rm.style.left=Math.max(8,left)+'px';rm.style.top=Math.max(8,top)+'px';
+  btn.classList.add('act');rmRow=r;
+}
+tb.addEventListener('click',function(e){var b=e.target.closest('.more');if(!b)return;e.stopPropagation();
+  var was=b.classList.contains('act');closeMenu();if(!was)openMenu(b);});
+rm.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
+  var to=b.dataset.to,act=b.dataset.act,row=rmRow;
+  closeMenu();
+  if(act==='dup'){dupRow(row);return;}
+  if(act==='notes'||act==='stock'){location.href='poziciya.html?a='+encodeURIComponent(row.cells[2].textContent.trim());return;}
+  
+  if(to&&row)setStatus(row,to);
+});
+document.addEventListener('click',function(e){if(!e.target.closest('#rowmenu')&&!e.target.closest('.more'))closeMenu();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closeMenu();});
+window.addEventListener('resize',closeMenu);
+var LB={pub:['ok','Опубликовано'],mod:['mod','На модерации'],fix:['warn','Требует доработки'],draft:['mute','Черновик'],hidden:['mute','Скрыто'],oos:['bad','Нет в наличии'],arch:['mute','Архив']};
+var TL={tovar:'Товар',usluga:'Услуга',kurs:'Курс',sobytie:'Событие'};
+function cardOf(r){return grid.children[Array.prototype.indexOf.call(tb.rows,r)];}
+function setStatus(r,to){var L=LB[to];if(!L||!r)return;
+  r.dataset.st=to;
+  var s=r.querySelector('.st');s.className='st st--'+L[0];s.textContent=L[1];
+  var c=cardOf(r);if(c){var cs=c.querySelector('.ph .st');if(cs){cs.className='st st--'+L[0];cs.textContent=L[1];}}
+  apply();}
+function rowName(r){var n=r.querySelector('.name');return (n.querySelector('button')||n.childNodes[0]).textContent.trim();}
+function setRowName(r,v){var n=r.querySelector('.name'),b=n.querySelector('button');if(b)b.textContent=v;else n.childNodes[0].textContent=v;}
+function dupRow(r){if(!r)return;
+  var i=Array.prototype.indexOf.call(tb.rows,r),cd=grid.children[i].cloneNode(true),n=r.cloneNode(true);
+  setRowName(n,rowName(r)+' — копия');
+  n.cells[2].textContent=r.cells[2].textContent.replace(/\d+$/,function(m){return String(+m+9).padStart(m.length,'0')});
+  n.cells[6].innerHTML='<span class="t3">—</span>';n.cells[7].innerHTML='<span class="t3">—</span>';
+  cd.querySelector('.nm').textContent=rowName(r)+' — копия';
+  cd.querySelector('.vw').textContent='— просм. · — зак.';
+  r.parentNode.insertBefore(n,r.nextSibling);
+  grid.insertBefore(cd,grid.children[i+1]||null);
+  setStatus(n,'draft');}
+Array.prototype.forEach.call(tb.querySelectorAll('.name'),function(n){
+  var b=document.createElement('button');b.type='button';b.textContent=n.childNodes[0].textContent.trim();
+  n.replaceChild(b,n.childNodes[0]);});
+tb.addEventListener('click',function(e){var b=e.target.closest('.name button');if(!b)return;location.href='poziciya.html?a='+encodeURIComponent(b.closest('tr').cells[2].textContent.trim());});
+grid.addEventListener('click',function(e){
+  var c=e.target.closest('.vcard');if(!c)return;
+  var r=tb.rows[Array.prototype.indexOf.call(grid.children,c)];if(!r)return;
+  var mb=e.target.closest('.more');
+  if(mb){e.stopPropagation();var was=mb.classList.contains('act');closeMenu();if(!was)openMenu(mb,r);return;}
+  location.href='poziciya.html?a='+encodeURIComponent(r.cells[2].textContent.trim());
+});
+apply();
+})();
+</script>
+</body>
+</html>
