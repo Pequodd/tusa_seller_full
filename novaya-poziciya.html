@@ -2,199 +2,9 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<title>Новая позиция · доставка · Кабинет селлера · Made by THOUSUKA</title>
+<title>Новая позиция · Кабинет селлера · Made by THOUSUKA</title>
 <link rel="stylesheet" href="assets/colors_and_type.css">
-<style>
-@font-face{font-family:'Lato';src:url('assets/fonts/Lato-Light.ttf') format('truetype');font-weight:300;font-display:swap}
-@font-face{font-family:'Lato';src:url('assets/fonts/Lato-Regular.ttf') format('truetype');font-weight:400;font-display:swap}
-@font-face{font-family:'Lato';src:url('assets/fonts/Lato-Italic.ttf') format('truetype');font-weight:400;font-style:italic;font-display:swap}
-@font-face{font-family:'Lato';src:url('assets/fonts/Lato-Bold.ttf') format('truetype');font-weight:700;font-display:swap}
-:root{--bg:#0B0A0D;--glass:rgba(255,255,255,0.045);--glass-2:rgba(255,255,255,0.07);--glass-border:rgba(255,255,255,0.10);--glass-border-strong:rgba(255,255,255,0.18);--text-1:#F4F2F4;--text-2:#B7B3BC;--text-3:#837F8A;--crimson:#9D2235;--crimson-soft:#C04B5C;--crimson-tint:rgba(157,34,53,0.16);--cta:#941E1D;--cta-hover:#B0292A;--beige:#C9A88F;--gold:#E8D08A;--green:#3FB984;--font-ui:'Lato','Helvetica Neue',sans-serif;--r-card:24px;--r-btn:9999px;--shadow-card:0 12px 40px rgba(0,0,0,0.45);--ease:cubic-bezier(0.25,0.46,0.45,0.94);--t:200ms}
-*{box-sizing:border-box}
-body{margin:0;background:#08070a;font-family:var(--font-ui);color:var(--text-1);-webkit-font-smoothing:antialiased}
-a{color:inherit;text-decoration:none}a:hover{color:var(--crimson-soft)}
-button{font-family:inherit;cursor:pointer}
-:focus-visible{outline:2px solid var(--crimson-soft);outline-offset:2px;border-radius:6px}
-.desk{padding:56px 48px 80px;display:flex;flex-direction:column;gap:44px;align-items:flex-start;min-width:max-content}
-.deskhead{width:1600px;display:flex;align-items:flex-end;justify-content:space-between;gap:32px;border-bottom:1px solid var(--glass-border);padding-bottom:22px}
-.deskhead h1{margin:0;font-size:26px;line-height:32px;font-weight:700;letter-spacing:.02em;text-transform:uppercase}
-.deskhead p{margin:8px 0 0;font-size:14px;line-height:20px;color:var(--text-3);max-width:680px}
-.legend{display:flex;gap:20px;flex:none}
-.legend div{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-3)}
-.legend i{width:8px;height:8px;border-radius:50%;display:block}
-.wrap{display:flex;flex-direction:column;gap:12px}
-.lbl{display:flex;align-items:baseline;gap:10px}
-.lbl b{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--text-2)}
-.lbl span{font-size:11px;color:#4a464f;letter-spacing:.04em}
-.lbl a{color:var(--crimson-soft);border-bottom:1px solid rgba(192,75,92,.35)}
-.lbl a:hover{color:#DFA3AC;border-color:#DFA3AC}
-.frame{position:relative;width:1600px;background:var(--bg);border:1px solid rgba(255,255,255,.08);border-radius:10px;overflow:hidden}
-.frame::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(880px 560px at 80% -8%,rgba(157,34,53,0.18),transparent 62%),radial-gradient(640px 480px at 4% 2%,rgba(124,52,40,0.11),transparent 56%)}
-.app{position:relative;z-index:1;display:grid;grid-template-columns:240px 1fr;align-items:stretch}
-.side{width:240px;background:rgba(255,255,255,.03);border-right:1px solid var(--glass-border);backdrop-filter:blur(16px);padding:24px 16px;display:flex;flex-direction:column;gap:22px}
-.wordmark{padding:0 8px}
-.wordmark b{display:block;font-weight:700;font-size:19px;letter-spacing:.16em}
-.wordmark span{display:block;margin-top:3px;font-size:9px;font-weight:700;letter-spacing:.34em;text-transform:uppercase;color:var(--text-3)}
-.nav{display:flex;flex-direction:column;gap:3px}
-.nav a{display:flex;align-items:center;gap:10px;height:40px;padding:0 14px;border-radius:var(--r-btn);font-size:14px;font-weight:500;color:var(--text-2);transition:color var(--t) var(--ease),background var(--t) var(--ease)}
-.nav a:hover{background:var(--glass);color:var(--text-1)}
-.nav a.on{background:var(--glass-2);color:#fff;font-weight:700}
-.nav a svg{width:16px;height:16px;flex:none;opacity:.7;fill:none;stroke:currentColor;stroke-width:1.5}
-.nav a.on svg{opacity:1;color:var(--crimson-soft)}
-.nav .badge{margin-left:auto;min-width:20px;height:20px;padding:0 6px;display:grid;place-items:center;border-radius:var(--r-btn);background:var(--glass-2);border:1px solid var(--glass-border);font-size:10px;font-weight:700;color:var(--text-2);font-variant-numeric:tabular-nums}
-.sidefoot{margin-top:auto;display:flex;flex-direction:column;gap:12px}
-.mode{display:grid;grid-template-columns:1fr 1fr;gap:4px;background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--r-btn);padding:4px}
-.mode button{border:0;border-radius:var(--r-btn);background:transparent;color:var(--text-3);font-size:13px;font-weight:700;height:34px;transition:color var(--t),background var(--t)}
-.mode button.on{background:var(--cta);color:#fff;box-shadow:0 0 20px rgba(157,34,53,.38)}
-.me{display:flex;align-items:center;gap:10px;padding:8px;border-radius:18px;transition:background var(--t) var(--ease)}
-.me:hover{background:var(--glass)}
-.top{display:flex;align-items:center;gap:16px;padding:18px 40px;border-bottom:1px solid var(--glass-border);background:rgba(255,255,255,.02);backdrop-filter:blur(14px)}
-.top .sp{margin-left:auto;display:flex;align-items:center;gap:12px}
-.main{width:100%;margin:0 auto;padding:30px 40px 40px;display:flex;flex-direction:column;gap:22px}
-.split{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:24px;align-items:start}
-.split--wide{grid-template-columns:minmax(0,1fr) 380px}
-.col{display:flex;flex-direction:column;gap:18px;min-width:0}
-.rail{display:flex;flex-direction:column;gap:16px}
-.phead{display:flex;align-items:flex-end;justify-content:space-between;gap:24px}
-.display{margin:0;font-size:32px;line-height:38px;font-weight:700;letter-spacing:.01em;text-transform:uppercase}
-.h2{margin:0;font-size:20px;line-height:26px;font-weight:700}
-.h3{margin:0;font-size:15px;line-height:21px;font-weight:700}
-.body{font-size:14px;line-height:21px;color:var(--text-2)}
-.sm{font-size:13px;line-height:18px}
-.xs{font-size:12px;line-height:16px}
-.eyebrow{font-size:10px;line-height:1;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--text-3)}
-.stat{font-weight:700;font-size:34px;line-height:40px;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
-.num{font-weight:700;font-variant-numeric:tabular-nums}
-.t2{color:var(--text-2)}.t3{color:var(--text-3)}.gold{color:var(--gold)}.up{color:var(--green)}.crim{color:var(--crimson-soft)}
-.card{background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--r-card);backdrop-filter:blur(16px);box-shadow:var(--shadow-card)}
-.pad{padding:20px 22px}
-.card__h{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 22px;border-bottom:1px solid var(--glass-border)}
-.stackv{display:flex;flex-direction:column;gap:12px}
-.rows{display:flex;flex-direction:column}
-.row{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:13px 22px;border-bottom:1px solid var(--glass-border)}
-.row:last-child{border-bottom:0}
-.urgent{box-shadow:inset 2px 0 0 var(--crimson-soft),var(--shadow-card);background:rgba(157,34,53,.08);border-color:rgba(192,75,92,.24)}
-.orb{position:relative;display:grid;place-items:center;border-radius:50%;background:radial-gradient(120% 120% at 30% 22%,rgba(255,255,255,0.16),rgba(255,255,255,0.03) 42%,rgba(255,255,255,0.012) 70%),rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.10);box-shadow:inset 0 1px 1px rgba(255,255,255,0.22),inset 0 -8px 18px rgba(0,0,0,0.45),0 6px 18px rgba(0,0,0,0.40);backdrop-filter:blur(14px);color:#fff;flex:none;width:38px;height:38px}
-.orb svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.5}
-.orb--sm{width:32px;height:32px}.orb--sm svg{width:15px;height:15px}
-.orb--crimson{background:radial-gradient(120% 120% at 30% 22%,rgba(192,75,92,.40),rgba(157,34,53,.22) 45%,rgba(157,34,53,.10) 70%);border-color:rgba(192,75,92,.34);color:#F0C3C9}
-.orb--gold{background:radial-gradient(120% 120% at 30% 22%,rgba(232,208,138,.34),rgba(201,168,76,.14) 45%,rgba(201,168,76,.06) 70%);border-color:rgba(232,208,138,.30);color:var(--gold)}
-.av{width:36px;height:36px;border-radius:50%;flex:none;background:var(--glass-2);border:1px solid var(--glass-border-strong);box-shadow:0 0 0 4px rgba(255,255,255,.03);display:grid;place-items:center;font-weight:700;font-size:14px;color:var(--text-2)}
-.av--sm{width:26px;height:26px;font-size:11px;box-shadow:none}
-.thumb{width:46px;height:46px;border-radius:14px;flex:none;background:linear-gradient(150deg,rgba(201,168,143,.20),rgba(255,255,255,.03));border:1px solid var(--glass-border);display:grid;place-items:center;font-weight:700;font-size:15px;color:rgba(201,168,143,.78)}
-.prod{display:flex;align-items:center;gap:14px;min-width:0}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:38px;padding:0 18px;border-radius:var(--r-btn);border:1px solid var(--glass-border);background:var(--glass);color:var(--text-1);font-size:13px;font-weight:700;white-space:nowrap;transition:background var(--t) var(--ease),border-color var(--t) var(--ease),box-shadow var(--t) var(--ease)}
-.btn:hover{background:var(--glass-2);border-color:var(--glass-border-strong)}
-.btn--cta{background:var(--cta);border-color:var(--cta);color:#fff}
-.btn--cta:hover{background:var(--cta-hover);border-color:var(--cta-hover);box-shadow:0 0 26px rgba(157,34,53,.48)}
-.btn--gold{border-color:rgba(232,208,138,.38);color:var(--gold);background:rgba(232,208,138,.07)}
-.btn--gold:hover{background:rgba(232,208,138,.13);border-color:rgba(232,208,138,.6);box-shadow:0 0 22px rgba(232,208,138,.22)}
-.btn--danger{border-color:rgba(192,75,92,.4);color:#DFA3AC;background:rgba(157,34,53,.10)}
-.btn--sm{height:30px;padding:0 14px;font-size:12px}
-.btn--w{width:100%}
-.seg{display:flex;gap:3px;background:var(--glass);border:1px solid var(--glass-border);border-radius:var(--r-btn);padding:4px}
-.seg button{border:0;background:transparent;border-radius:var(--r-btn);height:30px;padding:0 15px;font-size:13px;font-weight:700;color:var(--text-3);transition:color var(--t),background var(--t)}
-.seg button:hover{color:var(--text-2)}
-.seg button.on{background:var(--glass-2);color:#fff}
-.chips{display:flex;gap:7px;flex-wrap:wrap;align-items:center}
-.chip{display:inline-flex;align-items:center;height:28px;padding:0 13px;border-radius:var(--r-btn);font-size:12px;font-weight:700;letter-spacing:.03em;background:var(--glass);border:1px solid var(--glass-border);color:var(--text-2);white-space:nowrap;transition:border-color var(--t),color var(--t),background var(--t)}
-.chip:hover{border-color:var(--glass-border-strong);color:var(--text-1)}
-.chip.on{background:var(--glass-2);border-color:var(--glass-border-strong);color:#fff}
-.chip--crimson{background:var(--crimson-tint);border-color:rgba(192,75,92,.30);color:#DFA3AC}
-.chip--gold{background:rgba(232,208,138,.08);border-color:rgba(232,208,138,.28);color:var(--gold)}
-.chip--sm{height:24px;padding:0 10px;font-size:10px;letter-spacing:.1em;text-transform:uppercase}
-.field{display:flex;flex-direction:column;gap:8px}
-.input{height:44px;border-radius:16px;background:rgba(255,255,255,.035);border:1px solid var(--glass-border);display:flex;align-items:center;gap:10px;padding:0 15px;font-size:14px;color:var(--text-1);transition:border-color var(--t)}
-.input:hover{border-color:var(--glass-border-strong)}
-.input--ph{color:var(--text-3)}
-.input--area{height:auto;min-height:92px;padding:14px 15px;align-items:flex-start;line-height:21px}
-.input svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.5;color:var(--text-3);flex:none}
-.icn{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:1.5;color:var(--text-2);flex:none}
-.bar{height:5px;border-radius:var(--r-btn);background:rgba(255,255,255,.09);overflow:hidden}
-.bar i{display:block;height:100%;border-radius:var(--r-btn);background:rgba(255,255,255,.55)}
-.bar--gold i{background:linear-gradient(90deg,#8B6914,#E8D08A 60%,#8B6914);box-shadow:0 0 14px rgba(232,208,138,.3)}
-.toggle{width:44px;height:24px;border-radius:var(--r-btn);border:1px solid var(--glass-border);background:rgba(255,255,255,.05);position:relative;flex:none;transition:background var(--t),border-color var(--t)}
-.toggle i{position:absolute;top:2px;left:2px;width:18px;height:18px;border-radius:50%;background:var(--text-3);transition:transform var(--t) var(--ease),background var(--t)}
-.toggle.on{background:rgba(157,34,53,.55);border-color:rgba(192,75,92,.5)}
-.toggle.on i{transform:translateX(20px);background:#fff}
-.tbl{width:100%;border-collapse:collapse}
-.tbl th{text-align:left;padding:0 22px;height:38px;background:rgba(255,255,255,.03);font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--text-3);border-bottom:1px solid var(--glass-border);white-space:nowrap}
-.tbl td{padding:0 22px;height:64px;border-bottom:1px solid var(--glass-border);font-size:14px;vertical-align:middle}
-.tbl tr:last-child td{border-bottom:0}
-.tbl tbody tr{transition:background var(--t) var(--ease)}
-.tbl tbody tr:hover{background:rgba(255,255,255,.03)}
-.tbl .r{text-align:right;font-variant-numeric:tabular-nums;font-weight:700;white-space:nowrap}
-.tbl tr.hot td{background:rgba(157,34,53,.07)}
-.tbl tr.hot td:first-child{box-shadow:inset 2px 0 0 var(--crimson-soft)}
-.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.tile{background:var(--glass);border:1px solid var(--glass-border);border-radius:20px;backdrop-filter:blur(16px);box-shadow:var(--shadow-card);padding:18px;display:flex;flex-direction:column;gap:10px;min-height:132px;transition:border-color var(--t) var(--ease),transform var(--t) var(--ease)}
-.tile:hover{transform:translateY(-4px);border-color:var(--glass-border-strong)}
-.tile .stat{margin-top:auto}
-.tile--gold{border-color:rgba(232,208,138,.22)}
-.tile--gold .stat{color:var(--gold)}
-.tile--gold:hover{border-color:rgba(232,208,138,.45);box-shadow:var(--shadow-card),0 0 24px rgba(201,168,76,.16)}
-.money{border-color:rgba(232,208,138,.24);background:linear-gradient(150deg,rgba(232,208,138,.10),rgba(255,255,255,.03) 60%);position:relative;overflow:hidden}
-.money::after{content:"";position:absolute;right:-70px;top:-90px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(232,208,138,.15),transparent 68%);pointer-events:none}
-.chart{height:190px;display:flex;align-items:flex-end;gap:6px}
-.chart i{flex:1;display:block;border-radius:3px 3px 0 0;background:linear-gradient(180deg,rgba(255,255,255,.22),rgba(255,255,255,.05))}
-.chart i.hi{background:linear-gradient(180deg,rgba(192,75,92,.85),rgba(157,34,53,.18));box-shadow:0 0 18px rgba(157,34,53,.35)}
-.xaxis{display:flex;justify-content:space-between;margin-top:12px}
-.funnel{display:flex;flex-direction:column;gap:14px}
-.funnel>div>div{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:7px}
-.fbar{height:30px;border-radius:6px;background:linear-gradient(90deg,rgba(255,255,255,.20),rgba(255,255,255,.06))}
-.fbar--hi{background:linear-gradient(90deg,rgba(192,75,92,.9),rgba(157,34,53,.35));box-shadow:0 0 22px rgba(157,34,53,.32)}
-.steps{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--glass-border);border-radius:20px;overflow:hidden;background:var(--glass)}
-.steps>div{padding:14px 18px;border-right:1px solid var(--glass-border)}
-.steps>div:last-child{border-right:0}
-.steps>div.done{background:rgba(255,255,255,.04)}
-.steps>div.now{background:rgba(157,34,53,.16);box-shadow:inset 0 -2px 0 var(--crimson-soft)}
-.steps .sm{margin-top:5px;font-weight:700}
-.tl{display:flex;flex-direction:column}
-.tl div{display:flex;gap:12px;align-items:flex-start;padding-bottom:16px;position:relative}
-.tl div:last-child{padding-bottom:0}
-.tl div::before{content:"";position:absolute;left:6.5px;top:16px;bottom:0;width:1px;background:var(--glass-border)}
-.tl div:last-child::before{display:none}
-.tl b{width:14px;height:14px;border-radius:50%;flex:none;margin-top:2px;border:1px solid var(--glass-border-strong);background:rgba(255,255,255,.06);position:relative;z-index:1}
-.tl div.done b{background:rgba(255,255,255,.55);border-color:transparent}
-.tl div.now b{background:var(--crimson);border-color:var(--crimson-soft);box-shadow:0 0 0 4px rgba(157,34,53,.22)}
-.tl p{margin:0;font-size:13px;line-height:18px;font-weight:700}
-.tl p span{display:block;font-size:12px;line-height:16px;font-weight:400;color:var(--text-3);margin-top:2px}
-.photo{aspect-ratio:1;border-radius:18px;border:1px solid var(--glass-border);background:linear-gradient(150deg,rgba(201,168,143,.22),rgba(255,255,255,.03));position:relative;overflow:hidden}
-.photo--add{border-style:dashed;border-color:var(--glass-border-strong);background:rgba(255,255,255,.02);display:grid;place-items:center;color:var(--text-3);font-size:12px;font-weight:700;text-align:center;gap:6px}
-.cover{height:190px;border-radius:20px;border:1px solid var(--glass-border);background:linear-gradient(140deg,rgba(157,34,53,.30),rgba(201,168,143,.18) 50%,rgba(255,255,255,.03));position:relative;overflow:hidden}
-.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.lab{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-3)}
-.cnt{font-size:11px;color:var(--text-3);font-variant-numeric:tabular-nums}
-.rad{width:18px;height:18px;border-radius:50%;flex:none;border:1px solid var(--glass-border-strong);background:rgba(255,255,255,.04);display:grid;place-items:center}
-.rad.on{border-color:var(--crimson-soft);background:var(--crimson);box-shadow:0 0 0 4px rgba(157,34,53,.22)}
-.rad.on::after{content:"";width:6px;height:6px;border-radius:50%;background:#fff}
-.gnav{display:flex;align-items:center;gap:32px;height:58px;padding:0 40px;border-bottom:1px solid var(--glass-border);background:rgba(255,255,255,.02);backdrop-filter:blur(14px)}
-.gnav .wm{font-weight:700;font-size:15px;letter-spacing:.2em}
-.gnav .lnk{display:flex;gap:28px;margin-left:20px}
-.gnav .lnk a{font-size:14px;color:var(--text-2)}
-.gnav .lnk a:hover{color:#fff}
-.gnav .rt{margin-left:auto;display:flex;align-items:center;gap:10px}
-.crumbs{display:flex;align-items:center;gap:9px;padding:13px 40px;border-bottom:1px solid var(--glass-border);font-size:12px;color:var(--text-3)}
-.crumbs a:hover{color:var(--crimson-soft)}
-.crumbs i{font-style:normal;color:#4a464f}
-.crumbs b{font-weight:700;color:var(--text-2)}
-.prof{display:flex;gap:11px;align-items:center;padding:2px 8px 18px;border-bottom:1px solid var(--glass-border)}
-.lvl{border:1px solid var(--glass-border);border-radius:18px;background:var(--glass);padding:14px 15px;display:flex;flex-direction:column;gap:9px}
-.alert{display:flex;align-items:center;gap:16px;padding:15px 20px;border-radius:20px;border:1px solid rgba(192,75,92,.30);background:rgba(157,34,53,.11);box-shadow:inset 3px 0 0 var(--crimson-soft)}
-.alert .btn{margin-left:auto}
-.kv{display:flex;flex-direction:column}
-.kv>div{display:flex;align-items:baseline;justify-content:space-between;gap:18px;padding:12px 0;border-bottom:1px solid rgba(255,255,255,.06)}
-.kv>div:last-child{border-bottom:0}
-.kv .k{font-size:13px;line-height:18px;color:var(--text-2)}
-.kv .v{font-size:14px;font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
-.kv .v--neg{color:var(--text-2)}
-.kv--pay{border-top:1px solid var(--glass-border);margin-top:2px;padding-top:4px}
-.act{display:flex;align-items:center;gap:12px}
-.act .off{margin-left:auto;font-size:13px;font-weight:700;color:#514d58;cursor:not-allowed}
-.quote{margin:0;font-size:13px;line-height:20px;color:var(--text-2);font-style:italic}
-</style>
+<link rel="stylesheet" href="styles-board.css">
 <style>
 .deskhead,.frame{width:1600px}
 .main{max-width:1600px;padding:36px 80px 48px}
@@ -309,6 +119,39 @@ button{font-family:inherit;cursor:pointer}
 .btn[disabled]{opacity:.36;box-shadow:none;pointer-events:none}
 .hint{display:inline-flex;align-items:center;gap:7px;font-size:11px;color:var(--crimson-soft)}
 .hint i{width:6px;height:6px;border-radius:50%;background:var(--crimson-soft);display:block}
+.wstep[hidden]{display:none!important}
+.steps>div{cursor:pointer;transition:background var(--t) var(--ease)}
+.steps>div:hover{background:rgba(255,255,255,.06)}
+.steps>div.wait .sm{color:var(--text-3);font-weight:400}
+.tgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.topt{display:flex;gap:14px;align-items:flex-start;text-align:left;padding:18px 19px;border-radius:22px;border:1px solid var(--glass-border);background:rgba(255,255,255,.03);transition:border-color var(--t) var(--ease),background var(--t) var(--ease),transform var(--t) var(--ease)}
+.topt:hover{border-color:var(--glass-border-strong);transform:translateY(-2px)}
+.topt.on{border-color:rgba(192,75,92,.55);background:var(--crimson-tint)}
+.topt i{width:38px;height:38px;border-radius:13px;flex:none;display:grid;place-items:center;border:1px solid var(--glass-border-strong);background:rgba(255,255,255,.04)}
+.topt i svg{width:18px;height:18px;fill:none;stroke:var(--text-1);stroke-width:1.7}
+.topt b{display:block;font-size:15px;font-weight:700;color:var(--text-1)}
+.topt span{display:block;font-size:12.5px;line-height:18px;color:var(--text-3);margin-top:6px}
+.wf{display:flex;flex-direction:column;gap:7px}
+.wf>label{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text-3)}
+.wf input,.wf textarea,.wf select{width:100%;height:46px;padding:0 16px;border-radius:15px;border:1px solid var(--glass-border);background:rgba(255,255,255,.03);color:var(--text-1);font:inherit;font-size:14px;transition:border-color var(--t) var(--ease)}
+.wf input:focus,.wf textarea:focus,.wf select:focus{border-color:rgba(192,75,92,.5);outline:none}
+.wf textarea{height:120px;padding:13px 16px;line-height:20px;resize:vertical}
+.wf select{appearance:none;-webkit-appearance:none;padding-right:42px;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23837F8A' stroke-width='2'><path d='M6 9l6 6 6-6'/></svg>");background-repeat:no-repeat;background-position:right 15px center;background-size:16px}
+.wf select option{background:#171419}
+.wf .cnt{font-size:11.5px;color:var(--text-3)}
+.media{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.mi{position:relative;aspect-ratio:1;border-radius:18px;overflow:hidden;border:1px solid var(--glass-border);background:#0F0D12}
+.mi img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.mi.cover::after{content:"Обложка";position:absolute;left:9px;bottom:9px;padding:3px 9px;border-radius:9999px;background:rgba(11,10,13,.82);border:1px solid rgba(255,255,255,.16);font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.mi .del{position:absolute;right:8px;top:8px;width:26px;height:26px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:rgba(11,10,13,.78);color:#fff;font-size:13px;line-height:1;display:grid;place-items:center;opacity:0;transition:opacity var(--t) var(--ease)}
+.mi:hover .del{opacity:1}
+.mi--add{display:grid;place-items:center;border-style:dashed;border-color:var(--glass-border-strong);color:var(--text-3);gap:6px;font-size:12px;font-weight:700}
+.mi--add svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2}
+.mi--add:hover{color:#fff;border-color:rgba(192,75,92,.5)}
+.pvcard{border-radius:20px;overflow:hidden;border:1px solid var(--glass-border);background:rgba(255,255,255,.03)}
+.pvcard .im{position:relative;aspect-ratio:4/3;background:#0F0D12}
+.pvcard .im img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.pvcard .bd{padding:15px 16px 17px;display:flex;flex-direction:column;gap:8px}
 </style>
 <link rel="stylesheet" href="demo.css">
 <style>.av--img{overflow:hidden;padding:0;background:#0F0D12}.av--img img{width:100%;height:100%;object-fit:cover;display:block;border-radius:50%}</style>
@@ -318,10 +161,10 @@ button{font-family:inherit;cursor:pointer}
 <body class="dm">
 <div class="dm-bar">
   <a class="dm-home" href="index.html"><img src="logo.svg" alt="THOUSUKA" class="dm-logo" /><span class="dm-sub">Кабинет селлера · демо</span></a>
-  <div class="dm-now"><b>Новая позиция · доставка</b><span>шаг 5 · география доставки</span></div>
+  <div class="dm-now"><b>Новая позиция</b><span>шаг 1 · тип и направление</span></div>
   <div class="dm-nav">
     <a class="dm-btn" href="vitrina.html" title="Предыдущий экран">←</a>
-    <select class="dm-sel" onchange="location.href=this.value"><option value="svodka.html">Сводка</option><option value="vitrina.html">Витрина</option><option value="novaya-poziciya.html" selected>Новая позиция · доставка</option><option value="zakazy.html">Заказы</option><option value="zakaz-1043.html">Заказ №1043</option><option value="raspisanie.html">Расписание</option><option value="finansy.html">Финансы</option><option value="analitika.html">Аналитика</option><option value="otzyvy.html">Отзывы</option><option value="prodvizhenie.html">Продвижение</option><option value="soobscheniya.html">Сообщения</option><option value="profil.html">Профиль бренда</option><option value="nastroyki.html">Настройки</option></select>
+    <select class="dm-sel" onchange="location.href=this.value"><option value="svodka.html">Сводка</option><option value="vitrina.html">Витрина</option><option value="novaya-poziciya.html" selected>Новая позиция · мастер</option><option value="zakazy.html">Заказы</option><option value="zakaz-1043.html">Заказ №1043</option><option value="raspisanie.html">Расписание</option><option value="finansy.html">Финансы</option><option value="analitika.html">Аналитика</option><option value="otzyvy.html">Отзывы</option><option value="prodvizhenie.html">Продвижение</option><option value="soobscheniya.html">Сообщения</option><option value="profil.html">Профиль бренда</option><option value="nastroyki.html">Настройки</option></select>
     <a class="dm-btn" href="zakazy.html" title="Следующий экран">→</a>
   </div>
 </div>
@@ -344,14 +187,134 @@ button{font-family:inherit;cursor:pointer}
         <div class="sp"><a href="vitrina.html" class="btn btn--sm">Отменить</a></div>
       </div>
       <div class="main">
-        <div class="steps">
-          <div class="done"><span class="eyebrow">Шаг 1</span><div class="sm">Тип · Товар</div></div>
-          <div class="done"><span class="eyebrow">Шаг 2</span><div class="sm">Название и описание</div></div>
-          <div class="done"><span class="eyebrow">Шаг 3</span><div class="sm">Фото · 3 шт</div></div>
-          <div class="done"><span class="eyebrow">Шаг 4</span><div class="sm">4 800 ₽ · 7 шт</div></div>
-          <div class="now"><span class="eyebrow" style="color:#DFA3AC">Шаг 5</span><div class="sm">Доставка</div></div>
+        <div class="steps" data-steps>
+          <div data-s="1"><span class="eyebrow">Шаг 1</span><div class="sm">Тип позиции</div></div>
+          <div data-s="2"><span class="eyebrow">Шаг 2</span><div class="sm">Название и описание</div></div>
+          <div data-s="3"><span class="eyebrow">Шаг 3</span><div class="sm">Фото</div></div>
+          <div data-s="4"><span class="eyebrow">Шаг 4</span><div class="sm">Цена и наличие</div></div>
+          <div data-s="5"><span class="eyebrow">Шаг 5</span><div class="sm">Доставка</div></div>
         </div>
-        <div class="phead"><div><span class="eyebrow">Шаг 5 из 5 · доставка</span><h2 class="display" style="margin-top:10px">Как и куда ты отправляешь</h2><p class="body t3" style="margin:9px 0 0;max-width:660px">Доставку ты организуешь сама и получаешь оплату за неё напрямую. От нас нужна только география: куда ты готова отправлять.</p></div><div style="display:flex;gap:10px"><a href="vitrina.html" class="btn">Назад</a><a href="vitrina.html" class="btn btn--cta">Опубликовать позицию</a></div></div>
+        <section class="wstep" data-panel="1"><div class="phead"><div><span class="eyebrow">Шаг 1 из 5 · тип</span><h2 class="display" style="margin-top:10px">Что ты выставляешь</h2><p class="body t3" style="margin:9px 0 10px;max-width:800px;width:800px">От типа зависят остальные шаги: у товара — остаток и доставка, у услуги — слоты, у курса — поток и доступ.</p></div><div style="display:flex;gap:10px"><a href="vitrina.html" class="btn">Отменить</a><button class="btn btn--cta" type="button" data-next>Дальше</button></div></div>
+        <div class="split">
+          <div class="col">
+            <div class="card">
+              <div class="card__h"><div><h3 class="h3">Тип позиции</h3><div class="xs t3" style="margin-top:5px">Потом сменить нельзя — придётся создавать заново</div></div></div>
+              <div class="pad">
+                <div class="tgrid" data-types>
+                  <button class="topt on" type="button" data-t="tovar"><i><svg viewBox="0 0 24 24"><path d="M3 9h18M4 9l1-4h14l1 4M5 9v11h14V9"></path></svg></i><div><b>Товар</b><span>Физическая вещь, которую ты отправляешь: керамика, украшения, свечи</span></div></button>
+                  <button class="topt" type="button" data-t="usluga"><i><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l4 2"></path></svg></i><div><b>Услуга</b><span>Встреча или работа по записи: консультация, разбор, мастер-класс</span></div></button>
+                  <button class="topt" type="button" data-t="kurs"><i><svg viewBox="0 0 24 24"><path d="M4 6h16v12H4zM4 10h16"></path></svg></i><div><b>Курс</b><span>Поток с датой старта, уроками и доступом к материалам</span></div></button>
+                  <button class="topt" type="button" data-t="sobytie"><i><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path></svg></i><div><b>Событие</b><span>Одна дата и ограниченное число мест: ретрит, ужин, встреча</span></div></button>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card__h"><h3 class="h3">Направление</h3><span class="chip chip--sm">обязательно</span></div>
+              <div class="pad stackv" style="gap:16px">
+                <div class="grid2" style="gap:16px">
+                  <div class="wf"><label for="w-dir">Направление платформы</label><select id="w-dir"><option>Art &amp; Design</option><option>Parfum</option><option>Sense</option><option>Spirit</option><option>TUSA Events</option></select></div>
+                  <div class="wf"><label for="w-cat">Категория</label><select id="w-cat"><option>Керамика</option><option>Украшения</option><option>Свечи</option><option>Текстиль</option></select></div>
+                </div>
+                <div class="note"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 8v5M12 16h.01"></path></svg><div>Черновик уже создан — можно уйти и вернуться, ничего не потеряется.</div></div>
+              </div>
+            </div>
+          </div>
+          <div class="rail">
+            <div class="card pad stackv"><span class="eyebrow">Что будет дальше</span><p class="sm t2" style="margin:0;line-height:20px">Название и описание, затем фото, цена с остатком и география доставки. Пять коротких шагов — обычно десять минут.</p></div>
+            <div class="card pad stackv"><span class="eyebrow">Совет куратора</span><p class="sm t2" style="margin:0;line-height:20px">Если сомневаешься между товаром и услугой: отправляешь посылку — товар, назначаешь время — услуга.</p></div>
+          </div>
+        </div></section>
+        <section class="wstep" data-panel="2" hidden><div class="phead"><div><span class="eyebrow">Шаг 2 из 5 · текст</span><h2 class="display" style="margin-top:10px">Название и описание</h2><p class="body t3" style="margin:9px 0 0;max-width:660px">Это первое, что читает покупательница. Пиши так, как рассказала бы подруге: из чего, какого размера и почему именно так.</p></div><div style="display:flex;gap:10px"><button class="btn" type="button" data-prev>Назад</button><button class="btn btn--cta" type="button" data-next>Дальше</button></div></div>
+        <div class="split">
+          <div class="col">
+            <div class="card">
+              <div class="card__h"><h3 class="h3">Текст позиции</h3><span class="chip chip--sm" data-tlabel>Товар</span></div>
+              <div class="pad stackv" style="gap:16px">
+                <div class="wf"><label for="w-nm">Название</label><input id="w-nm" type="text" value="Чаша «Утро», песочная" /><span class="cnt">До 60 символов — в каталоге название обрезается</span></div>
+                <div class="wf"><label for="w-ds">Описание</label><textarea id="w-ds">Ручная лепка, глазурь пищевая. Объём 350 мл, диаметр 12 см. Каждая чаша чуть отличается оттенком — это обжиг, а не брак. Можно мыть в посудомоечной машине.</textarea><span class="cnt"><span data-len>0</span> из 1200 символов</span></div>
+                <div class="grid2" style="gap:16px">
+                  <div class="wf"><label for="w-made">Срок изготовления</label><input id="w-made" type="text" value="2–3 дня" /></div>
+                  <div class="wf"><label for="w-tags">Теги для поиска</label><input id="w-tags" type="text" value="керамика, завтрак, подарок" /></div>
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card__h"><h3 class="h3">Характеристики</h3><span class="chip chip--sm">видно таблицей в карточке</span></div>
+              <div class="rows">
+                <div class="row" style="padding:14px 22px"><span class="sm t2">Материал</span><span class="sm" style="font-weight:700">Глина, пищевая глазурь</span></div>
+                <div class="row" style="padding:14px 22px"><span class="sm t2">Объём</span><span class="sm" style="font-weight:700">350 мл</span></div>
+                <div class="row" style="padding:14px 22px"><span class="sm t2">Диаметр</span><span class="sm" style="font-weight:700">12 см</span></div>
+              </div>
+              <div class="pad" style="padding:16px 22px"><button class="dashrow" type="button"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"></path></svg>Добавить характеристику</button></div>
+            </div>
+          </div>
+          <div class="rail">
+            <div class="card pad stackv"><span class="eyebrow">Что писать, а что нет</span><p class="sm t2" style="margin:0;line-height:20px">Размер, материал, срок изготовления — обязательно: без них модерация вернёт позицию. Обещания вроде «доставка за день» лучше не давать.</p></div>
+            <div class="card pad stackv"><span class="eyebrow">Как читается название</span><p class="sm t2" style="margin:0;line-height:20px">«Чаша «Утро», песочная» — предмет, имя, цвет. Так покупательница находит позицию поиском и узнаёт её в списке заказов.</p></div>
+          </div>
+        </div></section>
+        <section class="wstep" data-panel="3" hidden><div class="phead"><div><span class="eyebrow">Шаг 3 из 5 · фото</span><h2 class="display" style="margin-top:10px">Покажи вещь честно</h2><p class="body t3" style="margin:9px 0 0;max-width:660px">Минимум три снимка на нейтральном фоне и один — в руке или в интерьере, чтобы был понятен масштаб.</p></div><div style="display:flex;gap:10px"><button class="btn" type="button" data-prev>Назад</button><button class="btn btn--cta" type="button" data-next>Дальше</button></div></div>
+        <div class="split">
+          <div class="col">
+            <div class="card">
+              <div class="card__h"><div><h3 class="h3">Фотографии</h3><div class="xs t3" style="margin-top:5px">Первая — обложка. Перетащи, чтобы поменять порядок</div></div><span class="chip chip--sm chip--crimson" data-mcount>3 из 8</span></div>
+              <div class="pad"><div class="media" data-media>
+                <div class="mi cover"><img src="img/chasha.avif" alt="" /><button class="del" type="button" aria-label="Удалить">×</button></div>
+                <div class="mi"><img src="img/vaza.avif" alt="" /><button class="del" type="button" aria-label="Удалить">×</button></div>
+                <div class="mi"><img src="img/goncharka.avif" alt="" /><button class="del" type="button" aria-label="Удалить">×</button></div>
+                <button class="mi mi--add" type="button"><svg viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"></path></svg>Добавить</button>
+              </div></div>
+            </div>
+            <div class="card">
+              <div class="card__h"><h3 class="h3">Требования модерации</h3></div>
+              <div class="rows">
+                <div class="row" style="padding:14px 22px"><span class="sm t2">Минимум 3 снимка</span><span class="chip chip--sm chip--green">выполнено</span></div>
+                <div class="row" style="padding:14px 22px"><span class="sm t2">Нейтральный фон</span><span class="chip chip--sm chip--green">выполнено</span></div>
+                <div class="row" style="padding:14px 22px"><span class="sm t2">Снимок в масштабе — в руке или в интерьере</span><span class="chip chip--sm">не хватает</span></div>
+                <div class="row" style="padding:14px 22px"><span class="sm t2">Без коллажей, рамок и водяных знаков</span><span class="chip chip--sm chip--green">выполнено</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="rail">
+            <div class="card pad stackv"><span class="eyebrow">Свет</span><p class="sm t2" style="margin:0;line-height:20px">Съёмка у окна днём даёт честный цвет. Вспышка и жёлтая лампа искажают глазурь — потом приходят вопросы «почему цвет другой».</p></div>
+            <div class="card pad stackv"><span class="eyebrow">Формат</span><p class="sm t2" style="margin:0;line-height:20px">Квадрат 1:1, не меньше 1200×1200. Вертикальные кадры обрезаются по центру.</p></div>
+          </div>
+        </div></section>
+        <section class="wstep" data-panel="4" hidden><div class="phead"><div><span class="eyebrow">Шаг 4 из 5 · цена</span><h2 class="display" style="margin-top:10px">Цена и наличие</h2><p class="body t3" style="margin:9px 0 0;max-width:660px">Цена — только за саму вещь. Доставку покупательница платит тебе отдельно, её здесь считать не нужно.</p></div><div style="display:flex;gap:10px"><button class="btn" type="button" data-prev>Назад</button><button class="btn btn--cta" type="button" data-next>Дальше</button></div></div>
+        <div class="split">
+          <div class="col">
+            <div class="card">
+              <div class="card__h"><h3 class="h3">Цена</h3><span class="chip chip--sm">в рублях</span></div>
+              <div class="pad stackv" style="gap:16px">
+                <div class="grid2" style="gap:16px">
+                  <div class="wf"><label for="w-pr">Цена позиции</label><input id="w-pr" type="text" inputmode="numeric" value="4800" /></div>
+                  <div class="wf"><label for="w-old">Цена до скидки</label><input id="w-old" type="text" inputmode="numeric" placeholder="не указана" /></div>
+                </div>
+                <div class="grid2" style="gap:16px">
+                  <div class="wf"><label for="w-st">Остаток, шт</label><input id="w-st" type="text" inputmode="numeric" value="7" /></div>
+                  <div class="wf"><label for="w-min">Минимальный заказ</label><input id="w-min" type="text" value="1 шт" /></div>
+                </div>
+                <div class="row" style="padding:0;border:0"><div><div class="sm" style="font-weight:700">Принимать заказы при нулевом остатке</div><div class="xs t3" style="margin-top:4px">Позиция останется на витрине с пометкой «на заказ»</div></div><span class="toggle on"><i></i></span></div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card__h"><h3 class="h3">Сколько придёт тебе</h3><span class="chip chip--sm">комиссия платформы 8%</span></div>
+              <div class="pad">
+                <div class="kv">
+                  <div><span class="k">Цена позиции</span><span class="v" data-c-pr>4 800 ₽</span></div>
+                  <div><span class="k">Комиссия платформы</span><span class="v" data-c-fee>−384 ₽</span></div>
+                  <div><span class="k">Доставка — мимо платформы, напрямую тебе</span><span class="v">350–600 ₽</span></div>
+                  <div class="kv--pay" style="display:flex"><span class="k" style="font-weight:700;color:var(--text-1)">Выплата за позицию</span><span class="v" data-c-out>4 416 ₽</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="rail">
+            <div class="card pad stackv"><span class="eyebrow">Выплаты</span><p class="sm t2" style="margin:0;line-height:20px">Деньги приходят на карту раз в неделю, по вторникам, после того как покупательница подтвердит получение.</p></div>
+            <div class="card pad stackv"><span class="eyebrow">О скидках</span><p class="sm t2" style="margin:0;line-height:20px">Цену до скидки показываем зачёркнутой только если позиция реально продавалась дороже две недели. Иначе модерация снимет.</p></div>
+          </div>
+        </div></section>
+        <section class="wstep" data-panel="5" hidden><div class="phead"><div><span class="eyebrow">Шаг 5 из 5 · доставка</span><h2 class="display" style="margin-top:10px">Как и куда ты отправляешь</h2><p class="body t3" style="margin:9px 0 0;max-width:660px">Доставку ты организуешь сама и получаешь оплату за неё напрямую. От нас нужна только география: куда ты готова отправлять.</p></div><div style="display:flex;gap:10px"><button class="btn" type="button" data-prev>Назад</button><button class="btn btn--cta" type="button" data-pub>Опубликовать позицию</button></div></div>
         <div class="split">
           <div class="col">
             <div class="card">
@@ -405,10 +368,74 @@ button{font-family:inherit;cursor:pointer}
               <div class="note" style="margin-top:2px"><svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11a7 7 0 1 0-14 0c0 4.8 7 11 7 11z"></path><circle cx="12" cy="10" r="2.5"></circle></svg><div>Разово отправить всё равно можно — договоритесь в чате, и она оформит на адрес в РФ.</div></div>
             </div>
           </div>
-        </div>
+        </div></section>
       </div>
       </div>
     </div></div></div>
 <script src="demo.js"></script>
+<script>
+(function(){
+var LBL=[null,['Тип позиции','тип и направление'],['Название и описание','текст позиции'],['Фото','снимки'],['Цена и наличие','цена и остаток'],['Доставка','география доставки']];
+var TL={tovar:'Товар',usluga:'Услуга',kurs:'Курс',sobytie:'Событие'};
+var bar=document.querySelector('[data-steps]'),panels=document.querySelectorAll('[data-panel]');
+var now=document.querySelector('.dm-now'),type='tovar',cur=1;
+function show(n){
+  cur=Math.min(5,Math.max(1,n));
+  Array.prototype.forEach.call(panels,function(p){p.hidden=+p.dataset.panel!==cur;});
+  Array.prototype.forEach.call(bar.children,function(d){
+    var i=+d.dataset.s;
+    d.className=i<cur?'done':i===cur?'now':'wait';
+    d.querySelector('.eyebrow').style.color=i===cur?'#DFA3AC':'';
+    if(i===1)d.querySelector('.sm').textContent=i<cur?'Тип · '+TL[type]:'Тип позиции';
+  });
+  if(now)now.innerHTML='<b>Новая позиция</b><span>шаг '+cur+' · '+LBL[cur][1]+'</span>';
+  document.title='Новая позиция · '+LBL[cur][0]+' · Кабинет селлера · Made by THOUSUKA';
+  var m=document.querySelector('.main');if(m)m.scrollTop=0;
+}
+document.addEventListener('click',function(e){
+  var s=e.target.closest('[data-s]');if(s){show(+s.dataset.s);return;}
+  if(e.target.closest('[data-next]')){show(cur+1);return;}
+  if(e.target.closest('[data-prev]')){show(cur-1);return;}
+  if(e.target.closest('[data-pub]')){location.href='vitrina.html';return;}
+  var t=e.target.closest('[data-t]');
+  if(t){
+    type=t.dataset.t;
+    Array.prototype.forEach.call(t.parentNode.children,function(x){x.classList.toggle('on',x===t)});
+    var lb=document.querySelector('[data-tlabel]');if(lb)lb.textContent=TL[type];
+    return;
+  }
+  var tg=e.target.closest('.toggle');if(tg){tg.classList.toggle('on');return;}
+  var del=e.target.closest('.mi .del');
+  if(del){del.closest('.mi').remove();media();return;}
+  var add=e.target.closest('.mi--add');
+  if(add){
+    var n=document.createElement('div');n.className='mi';
+    n.innerHTML='<img src="img/svecha.avif" alt="" /><button class="del" type="button" aria-label="Удалить">×</button>';
+    add.parentNode.insertBefore(n,add);media();return;
+  }
+});
+function media(){
+  var box=document.querySelector('[data-media]');if(!box)return;
+  var list=box.querySelectorAll('.mi:not(.mi--add)');
+  Array.prototype.forEach.call(list,function(m,i){m.classList.toggle('cover',i===0)});
+  var c=document.querySelector('[data-mcount]');if(c)c.textContent=list.length+' из 8';
+  var a=box.querySelector('.mi--add');if(a)a.hidden=list.length>=8;
+}
+var ds=document.getElementById('w-ds'),len=document.querySelector('[data-len]');
+function textlen(){if(ds&&len)len.textContent=ds.value.length;}
+if(ds)ds.addEventListener('input',textlen);
+var pr=document.getElementById('w-pr');
+function money(){
+  if(!pr)return;
+  var v=parseInt(pr.value.replace(/\D/g,''),10)||0,fee=Math.round(v*0.08);
+  var f=function(n){return n.toLocaleString('ru-RU').replace(/,/g,' ')+' ₽'};
+  document.querySelector('[data-c-pr]').textContent=f(v);
+  document.querySelector('[data-c-fee]').textContent='−'+f(fee);
+  document.querySelector('[data-c-out]').textContent=f(v-fee);
+}
+if(pr)pr.addEventListener('input',money);
+textlen();money();media();show(1);
+})();
+</script>
 </body>
 </html>
